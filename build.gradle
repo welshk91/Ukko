@@ -1,0 +1,17 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.hilt_version = '2.43'
+    ext.nav_version = '2.40'
+    ext.retrofit_version = '2.9.0'
+    ext.gson_version = '2.9.0'
+
+    dependencies {
+        classpath("com.google.dagger:hilt-android-gradle-plugin:$hilt_version")
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.3.0-beta05' apply false
+    id 'com.android.library' version '7.3.0-beta05' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
+}

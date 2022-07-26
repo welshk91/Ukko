@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ukko</string>
+    <string name="dashboard_button_fetch_details">Grab Current Weather Details</string>
+    <string name="dashboard_info">Hardcoded to always grab Tampa\'s weather</string>
+</resources>
