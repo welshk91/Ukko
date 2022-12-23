@@ -19,7 +19,7 @@ data class WeatherDetails(
    @SerializedName("clouds")
     var clouds: Clouds? = null,
    @SerializedName("dt")
-    var dt: Int,
+    var dt: Long,
    @SerializedName("sys")
     var sys: Sys? = null,
    @SerializedName("timezone")

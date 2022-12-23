@@ -100,5 +100,15 @@
             app:layout_constraintTop_toBottomOf="@id/feels_like"
             tools:text="Wind Speeds of 5.75 mph" />
 
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{formatUtil.Companion.formatTime(viewModel.weatherDetails)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wind"
+            tools:text="Mon Jun 15 2020 17:07:59 GMT-0700" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
