@@ -42,5 +42,16 @@ class FormatUtil {
                 return "Time unknown"
             }
         }
+
+        /**
+         * https://openweathermap.org/weather-conditions
+         */
+        fun formatIconUrl(weatherDetails: WeatherDetails?): String? {
+            weatherDetails?.let {
+                return "http://openweathermap.org/img/wn/${it.weather.get(0).icon}@2x.png"
+            }
+
+            return null
+        }
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -12,6 +13,10 @@
         <variable
             name="formatUtil"
             type="com.github.welshk.ukko.utils.FormatUtil" />
+
+        <variable
+            name="imagesModel"
+            type="com.github.welshk.ukko.utils.PicassoBindingAdaptersKt" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,6 +74,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_main"
             tools:text="scattered clouds" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/weather_description"
+            app:layout_constraintStart_toEndOf="@id/weather_description"
+            app:layout_constraintTop_toTopOf="@id/weather_description"
+            binding:iconUrl="@{viewModel.weatherDetails}"
+            tools:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/temp"
