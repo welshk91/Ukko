@@ -15,6 +15,10 @@
             type="com.github.welshk.ukko.utils.FormatUtil" />
 
         <variable
+            name="heroImageUtil"
+            type="com.github.welshk.ukko.utils.HeroImageUtil" />
+
+        <variable
             name="imagesModel"
             type="com.github.welshk.ukko.utils.PicassoBindingAdaptersKt" />
     </data>
@@ -124,6 +128,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wind"
             tools:text="Mon Jun 15 2020 17:07:59 GMT-0700" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/hero_image"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time"
+            binding:heroImage="@{viewModel.weatherDetails}"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).author}"
+            app:layout_constraintBottom_toTopOf="@id/site"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="John Stevens" />
+
+        <TextView
+            android:id="@+id/site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).site}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Google" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

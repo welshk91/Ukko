@@ -1,13 +1,9 @@
 package com.github.welshk.ukko.utils
 
-import android.net.Uri
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.github.welshk.ukko.data.models.WeatherDetails
 import com.squareup.picasso.Picasso
-import com.github.welshk.ukko.R
-import com.squareup.picasso.Callback
 
 /**
  * File that provides DataBinding Adapters for Picasso
@@ -20,7 +16,7 @@ import com.squareup.picasso.Callback
  * https://stackoverflow.com/questions/66518908/load-image-by-picasso-in-recyclerview-by-databinding-kotlin
  */
 @BindingAdapter("iconUrl")
-fun loadImage(view: ImageView, weatherDetails: WeatherDetails?) {
+fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
     val iconUrl = FormatUtil.formatIconUrl(weatherDetails)
     if (iconUrl != null) {
         Picasso.get()
@@ -39,5 +35,14 @@ fun loadImage(view: ImageView, weatherDetails: WeatherDetails?) {
 //            }
 //        ).build()
 //        picasso.load(iconUrl).into(view)
+    }
+}
+
+@BindingAdapter("heroImage")
+fun loadHeroImage(view: ImageView, weatherDetails: WeatherDetails?) {
+    if (weatherDetails != null) {
+        Picasso.get()
+            .load(HeroImageUtil.getHeroImage(weatherDetails).imageDrawable)
+            .into(view)
     }
 }
