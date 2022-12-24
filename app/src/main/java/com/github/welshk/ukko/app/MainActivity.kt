@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         Snackbar.make(
             this,
             window.decorView.rootView,
-            "No location details given. Show stock city",
+            getString(R.string.snackbar_location_denied),
             Snackbar.LENGTH_SHORT
         ).show()
     }

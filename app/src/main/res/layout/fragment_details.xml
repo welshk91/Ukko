@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@{formatUtil.Companion.formatTemp(viewModel.weatherDetails)}"
+            android:text="@{formatUtil.Companion.formatTemp(temp, viewModel.weatherDetails)}"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_description"
@@ -110,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@{formatUtil.Companion.formatWind(viewModel.weatherDetails)}"
+            android:text="@{formatUtil.Companion.formatWind(wind, viewModel.weatherDetails)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/feels_like"
             tools:text="Wind Speeds of 5.75 mph" />
@@ -120,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@{formatUtil.Companion.formatTime(viewModel.weatherDetails)}"
+            android:text="@{formatUtil.Companion.formatTime(time, viewModel.weatherDetails)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wind"
             tools:text="Mon Jun 15 2020 17:07:59 GMT-0700" />
