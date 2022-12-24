@@ -59,11 +59,11 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    fun locationSuccess(location: Location) {
+    private fun locationSuccess(location: Location) {
         viewModel.setLocation(location)
     }
 
-    fun locationAccessDenied() {
+    private fun locationAccessDenied() {
         Snackbar.make(
             this,
             window.decorView.rootView,
