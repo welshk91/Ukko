@@ -17,10 +17,10 @@ class MainViewModel @Inject constructor() : ViewModel() {
     private val _userLocation = MutableLiveData<Location>()
 
     fun getLocation(): Location? {
-        return userLocation.value
+        return _userLocation.value
     }
 
     fun setLocation(location: Location) {
-        userLocation.value?.set(location)
+        _userLocation.postValue(location)
     }
 }

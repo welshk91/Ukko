@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.databinding.FragmentDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
-    private val viewModel: DetailsViewModel by activityViewModels()
+    private val viewModelActivity: MainViewModel by activityViewModels()
+    private val viewModelFragment: DetailsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,18 +28,24 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
-        binding.viewModel = viewModel
+        binding.viewModel = viewModelFragment
         binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.weatherDetails.observe(this) { details ->
+        viewModelFragment.weatherDetails.observe(this) { details ->
             context?.let {
                 binding.progressbar.visibility = View.GONE
             }
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModelActivity.getLocation()?.let {
+            viewModelFragment.fetchWeatherDetails(it)
+        }
+    }
 }

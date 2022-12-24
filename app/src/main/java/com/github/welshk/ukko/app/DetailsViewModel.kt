@@ -1,5 +1,6 @@
 package com.github.welshk.ukko.app
 
+import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,17 +23,15 @@ class DetailsViewModel @Inject constructor(private val repository: DataRepositor
         get() = _weatherDetails
     private val _weatherDetails = MutableLiveData<WeatherDetails>()
 
-    init {
-        fetchWeatherDetails()
-    }
-
     //Get the days data in detail
-    private fun fetchWeatherDetails() {
+    fun fetchWeatherDetails(location: Location) {
         viewModelScope.launch {
-            val response = repository.getWeatherDetails()
+            val response = repository.getWeatherDetails(location)
             if (response.isSuccessful) {
                 val details = response.body()
-                _weatherDetails.postValue(details)
+                details?.let {
+                    _weatherDetails.postValue(it)
+                }
             } else {
                 //Handle error UI stuff here
             }

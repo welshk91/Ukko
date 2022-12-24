@@ -1,5 +1,6 @@
 package com.github.welshk.ukko.data
 
+import android.location.Location
 import com.github.welshk.ukko.data.models.WeatherDetails
 import com.github.welshk.ukko.networking.RestService
 import com.github.welshk.ukko.networking.RetrofitClient
@@ -16,10 +17,21 @@ import javax.inject.Singleton
 @Singleton
 class DataRepository {
 
+    /**
+     * Don't have any location data.
+     * Just get the current weather of the hardcoded stock city
+     */
     suspend fun getWeatherDetails(): Response<WeatherDetails> = withContext(Dispatchers.IO) {
         val retrofit = RetrofitClient.getInstance()
         val apiInterface = retrofit.create(RestService::class.java)
         val response = apiInterface.getCurrentWeather()
+        response
+    }
+
+    suspend fun getWeatherDetails(location: Location): Response<WeatherDetails> = withContext(Dispatchers.IO) {
+        val retrofit = RetrofitClient.getInstance()
+        val apiInterface = retrofit.create(RestService::class.java)
+        val response = apiInterface.getCurrentWeather(latitude = location.latitude.toString(), longitude = location.longitude.toString())
         response
     }
 }
