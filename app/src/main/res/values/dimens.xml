@@ -13,6 +13,6 @@
     <dimen name="detailsFeelsLike">14sp</dimen>
     <dimen name="detailsWind">14sp</dimen>
     <dimen name="detailsTimeStamp">14sp</dimen>
-    <dimen name="detailsAuthor">10sp</dimen>
-    <dimen name="detailsSite">10sp</dimen>
+    <dimen name="detailsAuthor">12sp</dimen>
+    <dimen name="detailsSite">12sp</dimen>
 </resources>
