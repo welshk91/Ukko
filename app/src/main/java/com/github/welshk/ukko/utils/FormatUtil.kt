@@ -68,11 +68,12 @@ class FormatUtil {
 
         fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                val date = getDate(weatherDetails.dt, weatherDetails.timezone)
-                val cal = Calendar.getInstance()
-                cal.time = date
+                val date = DateUtil.getDate(weatherDetails.dt, weatherDetails.timezone)
+                val cal = DateUtil.getCalendar(date)
                 val ampm =
-                    if (cal.get(Calendar.AM_PM) == 0) view.context.getString(R.string.am) else view.context.getString(
+                    if (cal.get(Calendar.AM_PM) == 0)
+                        view.context.getString(R.string.am)
+                    else view.context.getString(
                         R.string.pm
                     )
                 view.context.getString(
@@ -84,15 +85,6 @@ class FormatUtil {
             } else {
                 ""
             }
-        }
-
-        /**
-         * Calculates the Time Stamp from the API.
-         * The API tends to give a long for time so you must convert it properly to a Date object
-         * https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched
-         */
-        fun getDate(dt: Long, timezone: Int): Date {
-            return Date(dt * 1000 + (timezone * 1000))
         }
 
         /**
