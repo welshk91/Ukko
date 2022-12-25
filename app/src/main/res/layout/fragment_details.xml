@@ -53,6 +53,8 @@
             style="@style/DetailsCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detailsMargin"
+            android:layout_marginTop="@dimen/detailsMargin"
             android:text="@{formatUtil.Companion.formatCity(viewModel.weatherDetails)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -63,7 +65,7 @@
             style="@style/DetailsCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="@dimen/detailsCountryStartMargin"
             android:text="@{viewModel.weatherDetails.sys.country}"
             app:layout_constraintBottom_toBottomOf="@id/city"
             app:layout_constraintStart_toEndOf="@id/city"
@@ -74,31 +76,21 @@
             style="@style/DetailsTimeStamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="@dimen/detailsMargin"
             android:text="@{formatUtil.Companion.formatTime(time, viewModel.weatherDetails)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/city"
             tools:text="Mon Jun 15 2020 17:07:59 GMT-0700" />
 
         <TextView
-            android:id="@+id/weather_status"
-            style="@style/DetailsStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@{viewModel.weatherDetails.weather.get(0).main}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/weather_description"
-            tools:text="Clouds" />
-
-        <TextView
             android:id="@+id/weather_description"
             style="@style/DetailsDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detailsMargin"
             android:text="@{viewModel.weatherDetails.weather.get(0).main}"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tempLow"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="scattered clouds" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -113,24 +105,24 @@
 
         <TextView
             android:id="@+id/tempLow"
-            style="@style/DetailsTemp"
+            style="@style/DetailsTempLow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/detailsMargin"
             android:text="@{formatUtil.Companion.formatTempLow(temp, viewModel.weatherDetails)}"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/temp"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="73.45" />
 
         <TextView
             android:id="@+id/tempHigh"
-            style="@style/DetailsTemp"
+            style="@style/DetailsTempHigh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="@{formatUtil.Companion.formatTempHigh(temp, viewModel.weatherDetails)}"
-            app:layout_constraintStart_toEndOf="@id/tempLow"
             app:layout_constraintBottom_toTopOf="@id/temp"
+            app:layout_constraintStart_toEndOf="@id/tempLow"
             tools:text="81.26" />
 
         <TextView
@@ -138,10 +130,12 @@
             style="@style/DetailsTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/detailsMargin"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="@dimen/detailsMargin"
             android:text="@{formatUtil.Companion.formatTemp(temp, viewModel.weatherDetails)}"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="77.05" />
 
         <TextView
@@ -149,6 +143,7 @@
             style="@style/DetailsAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/detailsMargin"
             android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).author}"
             app:layout_constraintBottom_toTopOf="@id/site"
             app:layout_constraintEnd_toEndOf="parent"
@@ -159,6 +154,8 @@
             style="@style/DetailsSite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/detailsMargin"
+            android:layout_marginBottom="@dimen/detailsMargin"
             android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).site}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

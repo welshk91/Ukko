@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="detailsMargin">12dp</dimen>
+    <dimen name="detailsCountryStartMargin">6dp</dimen>
+
     <dimen name="detailsCity">32sp</dimen>
     <dimen name="detailsCountry">14sp</dimen>
     <dimen name="detailsStatus">18sp</dimen>
-    <dimen name="detailsDescription">14sp</dimen>
-    <dimen name="detailsTemp">18sp</dimen>
+    <dimen name="detailsDescription">22sp</dimen>
+    <dimen name="detailsTemp">96sp</dimen>
+    <dimen name="detailsTempLow">18sp</dimen>
+    <dimen name="detailsTempHigh">18sp</dimen>
     <dimen name="detailsFeelsLike">14sp</dimen>
     <dimen name="detailsWind">14sp</dimen>
     <dimen name="detailsTimeStamp">14sp</dimen>

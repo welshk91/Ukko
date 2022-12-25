@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Ukko" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Ukko" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -18,41 +18,62 @@
     <style name="DetailsCity" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsCity</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsCountry" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsCountry</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsStatus" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsStatus</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsDescription" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsDescription</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsTemp" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsTemp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="DetailsTempLow" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsTempLow</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="DetailsTempHigh" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsTempHigh</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsFeelsLike" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsFeelsLike</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsWind" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsWind</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsTimeStamp" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsTimeStamp</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsAuthor" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsAuthor</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsSite" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsSite</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 </resources>
