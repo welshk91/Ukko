@@ -63,18 +63,23 @@ class FormatUtil {
         }
 
         fun formatDescription(view: View, weatherDetails: WeatherDetails?): String {
-            return if (weatherDetails != null) {
-                weatherDetails.weather.get(0).description.capitalizeWords
-            } else {
-                ""
-            }
+            return weatherDetails?.weather?.get(0)?.description?.capitalizeWords ?: ""
         }
 
         fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
+                val date = getDate(weatherDetails.dt, weatherDetails.timezone)
+                val cal = Calendar.getInstance()
+                cal.time = date
+                val ampm =
+                    if (cal.get(Calendar.AM_PM) == 0) view.context.getString(R.string.am) else view.context.getString(
+                        R.string.pm
+                    )
                 view.context.getString(
                     R.string.time_stamp,
-                    formatDate(weatherDetails.dt, weatherDetails.timezone).toString()
+                    cal.get(Calendar.HOUR),
+                    cal.get(Calendar.MINUTE),
+                    ampm
                 )
             } else {
                 ""
@@ -86,7 +91,7 @@ class FormatUtil {
          * The API tends to give a long for time so you must convert it properly to a Date object
          * https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched
          */
-        fun formatDate(dt: Long, timezone: Int): Date {
+        fun getDate(dt: Long, timezone: Int): Date {
             return Date(dt * 1000 + (timezone * 1000))
         }
 
