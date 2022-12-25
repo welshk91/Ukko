@@ -60,7 +60,7 @@ class FormatUtil {
 
         fun formatCountry(weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                "${weatherDetails.sys?.country},"
+                "${weatherDetails.sys?.country}"
             } else {
                 ""
             }
