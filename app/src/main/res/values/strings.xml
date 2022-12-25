@@ -4,7 +4,7 @@
     <string name="snackbar_location_denied">No location details given. Show stock city</string>
 
     <string name="wind_speeds">Winds Up to %1$d mph</string>
-    <string name="temp">%1$dF</string>
-    <string name="temp_range">%1$dF  (%2$dF - %3$dF)</string>
+    <string name="temp">%1$d&#176;</string>
+    <string name="temp_range">%1$d&#176;  (%2$d&#176; - %3$d&#176;)</string>
     <string name="time_stamp">Time: %1$s</string>
 </resources>
