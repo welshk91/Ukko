@@ -10,14 +10,40 @@ import java.util.*
  */
 class FormatUtil {
     companion object {
+        fun formatTemperature(view: View, temperature: Int): String {
+            return view.context.getString(
+                R.string.temp,
+                temperature
+            )
+        }
+
         fun formatTemp(view: View, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                view.context.getString(
-                    R.string.temp_range,
-                    weatherDetails.main.temp.toInt(),
-                    weatherDetails.main.tempMin.toInt(),
-                    weatherDetails.main.tempMax.toInt()
-                )
+                formatTemperature(view, weatherDetails.main.temp.toInt())
+            } else {
+                ""
+            }
+        }
+
+        fun formatTempLow(view: View, weatherDetails: WeatherDetails?): String {
+            return if (weatherDetails != null) {
+                formatTemperature(view, weatherDetails.main.tempMin.toInt())
+            } else {
+                ""
+            }
+        }
+
+        fun formatTempHigh(view: View, weatherDetails: WeatherDetails?): String {
+            return if (weatherDetails != null) {
+                formatTemperature(view, weatherDetails.main.tempMax.toInt())
+            } else {
+                ""
+            }
+        }
+
+        fun formatFeelsLike(view: View, weatherDetails: WeatherDetails?): String {
+            return if (weatherDetails != null) {
+                formatTemperature(view, weatherDetails.main.feelsLike.toInt())
             } else {
                 ""
             }
