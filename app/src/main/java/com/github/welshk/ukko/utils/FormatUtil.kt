@@ -62,6 +62,14 @@ class FormatUtil {
             }
         }
 
+        fun formatDescription(view: View, weatherDetails: WeatherDetails?): String {
+            return if (weatherDetails != null) {
+                weatherDetails.weather.get(0).description.capitalizeWords
+            } else {
+                ""
+            }
+        }
+
         fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
                 view.context.getString(

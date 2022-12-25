@@ -88,10 +88,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/detailsMargin"
-            android:text="@{viewModel.weatherDetails.weather.get(0).main}"
+            android:text="@{formatUtil.Companion.formatDescription(time, viewModel.weatherDetails)}"
             app:layout_constraintBottom_toTopOf="@id/tempLow"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="scattered clouds" />
+            tools:text="Scattered Clouds" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/weather_icon"
