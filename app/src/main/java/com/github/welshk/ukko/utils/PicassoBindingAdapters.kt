@@ -3,6 +3,7 @@ package com.github.welshk.ukko.utils
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.github.welshk.ukko.data.models.WeatherDetails
+import com.github.welshk.ukko.views.GradientTransformation
 import com.squareup.picasso.Picasso
 
 /**
@@ -23,6 +24,7 @@ fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
             .load(iconUrl)
 //            .placeholder(R.drawable.ic_launcher_foreground)
 //            .error(R.drawable.ic_launcher_background)
+            .priority(Picasso.Priority.LOW)
             .into(view)
 
 //        val picasso = Picasso.Builder(view.context).listener(
@@ -40,9 +42,14 @@ fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
 
 @BindingAdapter("heroImage")
 fun loadHeroImage(view: ImageView, weatherDetails: WeatherDetails?) {
+    val gradientHeight = 1024
     if (weatherDetails != null) {
         Picasso.get()
             .load(HeroImageUtil.getHeroImage(weatherDetails).imageDrawable)
+            .fit()
+            .centerCrop()
+            .transform(GradientTransformation(view.context, gradientHeight))
+            .priority(Picasso.Priority.HIGH)
             .into(view)
     }
 }
