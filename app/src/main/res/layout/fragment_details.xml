@@ -76,6 +76,7 @@
             style="@style/DetailsTimeStamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
             android:layout_marginStart="@dimen/detailsMargin"
             android:text="@{formatUtil.Companion.formatTime(time, viewModel.weatherDetails)}"
             app:layout_constraintStart_toStartOf="parent"
