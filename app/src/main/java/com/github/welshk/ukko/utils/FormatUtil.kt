@@ -3,7 +3,8 @@ package com.github.welshk.ukko.utils
 import android.view.View
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.data.models.WeatherDetails
-import java.util.*
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 /**
  * Class to help with formatting UI elements to help LiveData
@@ -67,21 +68,10 @@ class FormatUtil {
         }
 
         fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
+            val timeFormat:DateFormat = SimpleDateFormat("h:mm a")
             return if (weatherDetails != null) {
                 val date = DateUtil.getDate(weatherDetails.dt, weatherDetails.timezone)
-                val cal = DateUtil.getCalendar(date)
-                val ampm =
-                    if (cal.get(Calendar.AM_PM) == 0)
-                        view.context.getString(R.string.am)
-                    else view.context.getString(
-                        R.string.pm
-                    )
-                view.context.getString(
-                    R.string.time_stamp,
-                    cal.get(Calendar.HOUR),
-                    cal.get(Calendar.MINUTE),
-                    ampm
-                )
+                return timeFormat.format(date)
             } else {
                 ""
             }
