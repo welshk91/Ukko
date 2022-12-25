@@ -19,6 +19,9 @@
         <item name="android:windowIsFloating">false</item>
     </style>
 
+    <style name="ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/progressbar</item>
+    </style>
 
     <style name="DetailsCity" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsCity</item>
