@@ -69,16 +69,19 @@
 
     <style name="DetailsTimeStamp" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsTimeStamp</item>
+        <item name="fontFamily">sans-serif-light</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsAuthor" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsAuthor</item>
+        <item name="fontFamily">sans-serif-thin</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DetailsSite" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/detailsSite</item>
+        <item name="fontFamily">sans-serif-thin</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 </resources>
