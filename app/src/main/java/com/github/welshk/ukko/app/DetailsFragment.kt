@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
     private val viewModelActivity: MainViewModel by activityViewModels()
-    private val viewModelFragment: DetailsViewModel by viewModels()
+    private val viewModelFragment: DetailsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
