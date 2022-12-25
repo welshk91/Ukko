@@ -252,43 +252,43 @@ class HeroImageUtil {
 
 
         fun getStockWeather(): HeroImage {
-            return HeroImage(R.drawable.clear, "30daysreplay Social Media Marketing", "unsplash")
+            return HeroImage(R.drawable.hanson_lu_ndd0m3myf4s_unsplash, "Hanson Lu", "unsplash")
         }
 
         fun getStockWeather(weatherDetails: WeatherDetails?): HeroImage {
-            return HeroImage(R.drawable.clear, "30daysreplay Social Media Marketing", "unsplash")
+            return getStockWeather()
         }
 
         fun getClearSky(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.peter_hulce_yykvhwigs3g_unsplash, "Peter Hulce", "unsplash")
         }
 
         fun getCloudsFew(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.safwana_basheer_4pil5m4ra2u_unsplash, "Safwana Basheer", "unsplash")
         }
 
         fun getCloudsScattered(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.peyman_farmani_uclyywtfk7w_unsplash, "Peyman Farmani", "unsplash")
         }
 
         fun getCloudsBroken(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.tom_barrett_hggplx3pfbg_unsplash, "Tom Barrett", "unsplash")
         }
 
         fun getCloudsOvercast(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.alfred_kenneally_le9htzxhsty_unsplash, "Alfred Kenneally", "unsplash")
         }
 
         fun getMist(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.xianyu_hao_n6pu9zdoan4_unsplash, "Xianyu Hao", "unsplash")
         }
 
         fun getSmoke(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.corina_rainer_jzc5etxnylu_unsplash, "Corina Rainer", "unsplash")
         }
 
         fun getHaze(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.wolfgang_hasselmann_7zfahbcmu74_unsplash, "Wolfgang Hasselmann", "unsplash")
         }
 
         fun getSandDustWhirls(weatherDetails: WeatherDetails?): HeroImage {
@@ -296,7 +296,7 @@ class HeroImageUtil {
         }
 
         fun getFog(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.david_million_5fg8ac1y1ss_unsplash, "David Million", "unsplash")
         }
 
         fun getSand(weatherDetails: WeatherDetails?): HeroImage {
@@ -320,83 +320,83 @@ class HeroImageUtil {
         }
 
         fun getSnowLight(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.hunter_bryant_ozmgy8s1mh8_unsplash, "Hunter Bryant", "unsplash")
         }
 
         fun getSnow(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.nate_williams_qpsmcnkgyyq_unsplash, "Nate Williams", "unsplash")
         }
 
         fun getSnowHeavy(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.hayes_potter_5px6khmmopg_unsplash, "Hayes Potter", "unsplash")
         }
 
         fun getSleet(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getLightShowerSleet(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getShowerSleet(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getSnowRainLight(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getSnowRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getLightShowerSnow(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getShowerSnow(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getHeavyShowerSnow(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getSnow(weatherDetails)
         }
 
         fun getRainLight(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.milin_john_we01ed9ei6g_unsplash, "Milin John", "unsplash")
         }
 
         fun getRainModerate(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.ahmed_nishaath_mwvhvglhj5o_unsplash, "Ahmed Nishaath", "unsplash")
         }
 
         fun getRainHeavyIntensity(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.alejandro_iovdr_sxmj0_unsplash, "Alejandro IovdR", "unsplash")
         }
 
         fun getRainVeryHeavy(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainHeavyIntensity(weatherDetails)
         }
 
         fun getRainExtreme(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainHeavyIntensity(weatherDetails)
         }
 
         fun getRainFreezing(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainHeavyIntensity(weatherDetails)
         }
 
         fun getRainLightIntensity(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainLight(weatherDetails)
         }
 
         fun getRainShower(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainLight(weatherDetails)
         }
 
         fun getRainHeavyIntensityShower(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getRainHeavyIntensity(weatherDetails)
         }
 
         fun getRainRaggedShower(weatherDetails: WeatherDetails?): HeroImage {
@@ -404,79 +404,79 @@ class HeroImageUtil {
         }
 
         fun getDrizzleLightIntensity(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzle(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.max_bender_1yhxfeoypn0_unsplash, "Max Bender", "unsplash")
         }
 
         fun getDrizzleHeavyIntensity(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleLightIntensityRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleHeavyIntensityRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleShowerRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleHeavyShowerRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getDrizzleShower(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getDrizzle(weatherDetails)
         }
 
         fun getThunderstormLightRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormHeavyRain(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormLight(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstorm(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return HeroImage(R.drawable.michelle_mcewen_scrqmg2f6qo_unsplash, "Michelle Mcewen", "unsplash")
         }
 
         fun getThunderstormHeavy(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormRagged(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormLightDrizzle(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormDrizzle(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
 
         fun getThunderstormHeavyDrizzle(weatherDetails: WeatherDetails?): HeroImage {
-            return getStockWeather(weatherDetails)
+            return getThunderstorm(weatherDetails)
         }
     }
 }
