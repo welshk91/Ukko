@@ -11,7 +11,7 @@ Written in Kotlin leveraging the [OpenWeatherMap API](https://openweathermap.org
 ## Improvements
 * Add more background images depiciting the weather status
 * Improve fonts
-* Add a five day [forecast](https://openweathermap.org/forecast5)
+* Add a [side sheet](https://m2.material.io/components/sheets-side) with more details and five day [forecast](https://openweathermap.org/forecast5)
 
 ## Sources
 * [Unsplash](https://unsplash.com/s/photos/weather)
