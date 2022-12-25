@@ -101,7 +101,7 @@
             app:layout_constraintStart_toEndOf="@id/weather_description"
             app:layout_constraintTop_toTopOf="@id/weather_description"
             binding:iconUrl="@{viewModel.weatherDetails}"
-            tools:src="@drawable/ic_launcher_background" />
+            tools:src="@drawable/ic_launcher_foreground" />
 
         <TextView
             android:id="@+id/tempLow"

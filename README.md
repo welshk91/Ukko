@@ -9,14 +9,12 @@ This app started as a basic coding assessment for a client. Barebones functional
 Written in Kotlin leveraging the [OpenWeatherMap API](https://openweathermap.org/api), this app uses the standard pillars of Android development: [Retrofit](https://square.github.io/retrofit/) for networking, [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for Dependency Injection, [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel), and [Databinding](https://developer.android.com/topic/libraries/data-binding) in an [MVVM](https://www.journaldev.com/20292/android-mvvm-design-pattern) pattern.
 
 ## Improvements
-* Add proper app launcher icon
-* Add background images depiciting the weather status
+* Add more background images depiciting the weather status
 * Improve fonts
 * Add a five day [forecast](https://openweathermap.org/forecast5)
 
 ## Sources
 * [Unsplash](https://unsplash.com/s/photos/weather)
-* [Pexels](https://www.pexels.com/search/weather/)
 
 ## License
 	Copyright 2022 Kevin Welsh
