@@ -51,7 +51,19 @@ class FormatUtil {
         }
 
         fun formatCity(weatherDetails: WeatherDetails?): String {
-            return "${weatherDetails?.name},"
+            return if (weatherDetails?.wind != null) {
+                "${weatherDetails.name},"
+            } else {
+                ""
+            }
+        }
+
+        fun formatCountry(weatherDetails: WeatherDetails?): String {
+            return if (weatherDetails != null) {
+                "${weatherDetails.sys?.country},"
+            } else {
+                ""
+            }
         }
 
         //Shouldn't hardcode this string
@@ -68,7 +80,7 @@ class FormatUtil {
         }
 
         fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
-            val timeFormat:DateFormat = SimpleDateFormat("h:mm a")
+            val timeFormat: DateFormat = SimpleDateFormat("h:mm a")
             return if (weatherDetails != null) {
                 val date = DateUtil.getDate(weatherDetails.dt, weatherDetails.timezone)
                 return timeFormat.format(date)

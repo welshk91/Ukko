@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/detailsCountryStartMargin"
-            android:text="@{viewModel.weatherDetails.sys.country}"
+            android:text="@{formatUtil.Companion.formatCountry(viewModel.weatherDetails)}"
             app:layout_constraintBottom_toBottomOf="@id/city"
             app:layout_constraintStart_toEndOf="@id/city"
             tools:text="USA" />
