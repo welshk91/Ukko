@@ -13,4 +13,46 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="DetailsCity" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsCity</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsCountry" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsCountry</item>
+    </style>
+
+    <style name="DetailsStatus" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsStatus</item>
+    </style>
+
+    <style name="DetailsDescription" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsDescription</item>
+    </style>
+
+    <style name="DetailsTemp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsTemp</item>
+    </style>
+
+    <style name="DetailsFeelsLike" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsFeelsLike</item>
+    </style>
+
+    <style name="DetailsWind" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsWind</item>
+    </style>
+
+    <style name="DetailsTimeStamp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsTimeStamp</item>
+    </style>
+
+    <style name="DetailsAuthor" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsAuthor</item>
+    </style>
+
+    <style name="DetailsSite" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/detailsSite</item>
+    </style>
 </resources>

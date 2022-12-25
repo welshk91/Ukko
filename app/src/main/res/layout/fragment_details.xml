@@ -26,7 +26,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="12dp"
         tools:context=".app.MainActivity">
 
         <ProgressBar
@@ -42,26 +41,26 @@
             android:id="@+id/hero_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             binding:heroImage="@{viewModel.weatherDetails}"
             tools:src="@drawable/hanson_lu_ndd0m3myf4s_unsplash" />
 
         <TextView
             android:id="@+id/city"
+            style="@style/DetailsCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{formatUtil.Companion.formatCity(viewModel.weatherDetails)}"
-            android:textSize="32sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Tampa," />
 
         <TextView
             android:id="@+id/country"
+            style="@style/DetailsCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -71,23 +70,24 @@
             tools:text="USA" />
 
         <TextView
-            android:id="@+id/weather_main"
+            android:id="@+id/weather_status"
+            style="@style/DetailsStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@{viewModel.weatherDetails.weather.get(0).main}"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/city"
             tools:text="Clouds" />
 
         <TextView
             android:id="@+id/weather_description"
+            style="@style/DetailsDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.weatherDetails.weather.get(0).main}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/weather_main"
+            app:layout_constraintTop_toBottomOf="@id/weather_status"
             tools:text="scattered clouds" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -102,17 +102,18 @@
 
         <TextView
             android:id="@+id/temp"
+            style="@style/DetailsTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@{formatUtil.Companion.formatTemp(temp, viewModel.weatherDetails)}"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_description"
             tools:text="77.05 (73.45-81.26)" />
 
         <TextView
             android:id="@+id/feels_like"
+            style="@style/DetailsFeelsLike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{Double.toString(viewModel.weatherDetails.main.feelsLike)}"
@@ -122,6 +123,7 @@
 
         <TextView
             android:id="@+id/wind"
+            style="@style/DetailsWind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -132,6 +134,7 @@
 
         <TextView
             android:id="@+id/time"
+            style="@style/DetailsTimeStamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -142,6 +145,7 @@
 
         <TextView
             android:id="@+id/author"
+            style="@style/DetailsAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).author}"
@@ -151,6 +155,7 @@
 
         <TextView
             android:id="@+id/site"
+            style="@style/DetailsSite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{heroImageUtil.Companion.getHeroImage(viewModel.weatherDetails).site}"
