@@ -13,10 +13,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.github.welshk.ukko.R
 
 /**
- * Fragment for the Dashboard, our opening screen
+ * Fragment for the Dashboard, our opening screen.
+ * We no longer start this fragment as it's currently just a button to go to Details anyways
  */
 @AndroidEntryPoint
-class DashboardFragment: Fragment() {
+class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
     private val viewModel: DashboardViewModel by activityViewModels()
 

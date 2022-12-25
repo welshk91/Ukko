@@ -40,6 +40,10 @@ class DetailsFragment : Fragment() {
                 binding.progressbar.visibility = View.GONE
             }
         }
+
+        viewModelActivity.userLocation.observe(this) {
+            viewModelFragment.fetchWeatherDetails(it)
+        }
     }
 
     override fun onResume() {
