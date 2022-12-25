@@ -38,6 +38,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/hero_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            binding:heroImage="@{viewModel.weatherDetails}"
+            tools:src="@drawable/hanson_lu_ndd0m3myf4s_unsplash" />
+
         <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
@@ -128,16 +139,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wind"
             tools:text="Mon Jun 15 2020 17:07:59 GMT-0700" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/hero_image"
-            android:layout_width="256dp"
-            android:layout_height="256dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/time"
-            binding:heroImage="@{viewModel.weatherDetails}"
-            tools:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/author"
