@@ -4,6 +4,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.github.welshk.ukko.data.models.WeatherDetails
 import com.github.welshk.ukko.views.GradientTransformation
+import com.github.welshk.ukko.views.RadialGradientTransformation
 import com.squareup.picasso.Picasso
 
 /**
@@ -49,6 +50,7 @@ fun loadHeroImage(view: ImageView, weatherDetails: WeatherDetails?) {
             .fit()
             .centerCrop()
             .transform(GradientTransformation(view.context, gradientHeight))
+            .transform(RadialGradientTransformation(view.context))
             .priority(Picasso.Priority.HIGH)
             .into(view)
     }

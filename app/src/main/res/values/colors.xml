@@ -16,4 +16,10 @@
     <color name="gradient_middle">#BF000000</color>
     <color name="gradient_middle_end">#E6000000</color>
     <color name="gradient_end">#000000</color>
+
+    <color name="radial_gradient_start">#000000</color>
+    <color name="radial_gradient_start_middle">#CC000000</color>
+    <color name="radial_gradient_middle">#99000000</color>
+    <color name="radial_gradient_middle_end">#33000000</color>
+    <color name="radial_gradient_end">#00000000</color>
 </resources>
