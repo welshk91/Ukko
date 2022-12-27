@@ -22,19 +22,9 @@ object DateUtil {
         return cal
     }
 
-    /**
-     * 0 Night, 1 Day
-     */
-    fun getDayOrNight(dt: Long): Int {
+    fun isNight(dt: Long): Boolean {
         val date = getDate(dt, 0)
         val cal = getCalendar(date)
-
-        return if (cal.get(Calendar.HOUR_OF_DAY) < DAWN || cal.get(Calendar.HOUR_OF_DAY) > DUSK) {
-            //Night
-            0
-        } else {
-            //Day
-            1
-        }
+        return cal.get(Calendar.HOUR_OF_DAY) < DAWN || cal.get(Calendar.HOUR_OF_DAY) > DUSK
     }
 }

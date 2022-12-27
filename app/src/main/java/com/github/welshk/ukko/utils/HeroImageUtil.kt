@@ -263,10 +263,24 @@ class HeroImageUtil {
         }
 
         fun getClearSky(weatherDetails: WeatherDetails?): HeroImage {
+            weatherDetails?.let {
+                if (DateUtil.isNight(it.dt)) {
+                    return HeroImage(R.drawable.kazuend_2kxeb_8g5vo_unsplash, "Kazuend", "unsplash")
+                }
+            }
             return HeroImage(R.drawable.peter_hulce_yykvhwigs3g_unsplash, "Peter Hulce", "unsplash")
         }
 
         fun getCloudsFew(weatherDetails: WeatherDetails?): HeroImage {
+            weatherDetails?.let {
+                if (DateUtil.isNight(it.dt)) {
+                    return HeroImage(
+                        R.drawable.sander_dewerte_jcp3xbn88w_unsplash,
+                        "Sander Dewerte",
+                        "unsplash"
+                    )
+                }
+            }
             return HeroImage(
                 R.drawable.safwana_basheer_4pil5m4ra2u_unsplash,
                 "Safwana Basheer",
@@ -275,6 +289,15 @@ class HeroImageUtil {
         }
 
         fun getCloudsScattered(weatherDetails: WeatherDetails?): HeroImage {
+            weatherDetails?.let {
+                if (DateUtil.isNight(it.dt)) {
+                    return HeroImage(
+                        R.drawable.kenrick_mills_t2c_6wdndpg_unsplash,
+                        "Kenrick Mills",
+                        "unsplash"
+                    )
+                }
+            }
             return HeroImage(
                 R.drawable.peyman_farmani_uclyywtfk7w_unsplash,
                 "Peyman Farmani",
