@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": -82.45,
+    "lat": 27.94
+  },
+  "weather": [
+    {
+      "id": 211,
+      "main": "Thunderstorm",
+      "description": "thunderstorm",
+      "icon": "11n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 61.22,
+    "feels_like": 59.05,
+    "temp_min": 56.17,
+    "temp_max": 65.99,
+    "pressure": 1024,
+    "humidity": 64
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4.61,
+    "deg": 40
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1672196597,
+  "sys": {
+    "type": 2,
+    "id": 2005199,
+    "country": "US",
+    "sunrise": 1672143567,
+    "sunset": 1672180926
+  },
+  "timezone": -18000,
+  "id": 4174757,
+  "name": "Tampa",
+  "cod": 200
+}
