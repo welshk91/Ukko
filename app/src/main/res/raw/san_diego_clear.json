@@ -1,0 +1,46 @@
+{
+  "coord": {
+    "lon": -117.1611,
+    "lat": 32.7157
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 58.51,
+    "feels_like": 58.39,
+    "temp_min": 56.8,
+    "temp_max": 60.21,
+    "pressure": 1013,
+    "humidity": 92
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 9.22,
+    "deg": 160
+  },
+  "rain": {
+    "1h": 0.38
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1672203855,
+  "sys": {
+    "type": 2,
+    "id": 2005032,
+    "country": "US",
+    "sunrise": 1672152570,
+    "sunset": 1672188590
+  },
+  "timezone": -28800,
+  "id": 5391811,
+  "name": "San Diego",
+  "cod": 200
+} 

@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": -85.6681,
+    "lat": 42.9634
+  },
+  "weather": [
+    {
+      "id": 601,
+      "main": "Snow",
+      "description": "Snow",
+      "icon": "13n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 24.89,
+    "feels_like": 18.72,
+    "temp_min": 22.69,
+    "temp_max": 27.18,
+    "pressure": 1012,
+    "humidity": 90
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 5.01,
+    "deg": 175
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1672203523,
+  "sys": {
+    "type": 2,
+    "id": 2005020,
+    "country": "US",
+    "sunrise": 1672146778,
+    "sunset": 1672179260
+  },
+  "timezone": -18000,
+  "id": 4994358,
+  "name": "Grand Rapids",
+  "cod": 200
+} 
