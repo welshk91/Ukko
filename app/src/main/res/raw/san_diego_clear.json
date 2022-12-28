@@ -8,7 +8,7 @@
       "id": 800,
       "main": "Clear",
       "description": "clear sky",
-      "icon": "01n"
+      "icon": "01d"
     }
   ],
   "base": "stations",
@@ -31,7 +31,7 @@
   "clouds": {
     "all": 100
   },
-  "dt": 1672203855,
+  "dt": 1672180855,
   "sys": {
     "type": 2,
     "id": 2005032,
