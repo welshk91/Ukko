@@ -39,7 +39,7 @@ android {
         }
 
         debug {
-            buildConfigField BOOLEAN, USE_MOCK_DATA, TRUE
+            buildConfigField BOOLEAN, USE_MOCK_DATA, FALSE
             buildConfigField STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE
             debuggable true
             minifyEnabled false
