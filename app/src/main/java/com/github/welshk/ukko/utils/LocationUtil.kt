@@ -4,9 +4,9 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
+import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 
@@ -15,7 +15,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
  */
 object LocationUtil {
     fun permissionRequest(
-        activity: AppCompatActivity,
+        activity: ComponentActivity,
         fineAccess: () -> Unit = {},
         coarseAccess: () -> Unit = {},
         noAccess: () -> Unit = {}

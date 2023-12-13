@@ -3,9 +3,9 @@ package com.github.welshk.ukko.app
 import android.Manifest
 import android.location.Location
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.utils.LocationUtil
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Mainly makes sure we get proper Location info
  */
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     private val viewModel: MainViewModel by viewModels()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var permissionRequest: ActivityResultLauncher<Array<String>>
