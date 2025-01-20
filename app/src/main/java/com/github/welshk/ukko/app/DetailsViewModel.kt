@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.github.welshk.ukko.data.DataRepository
 import com.github.welshk.ukko.data.models.WeatherDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.ktor.client.call.body
+import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,9 +29,9 @@ class DetailsViewModel @Inject constructor(private val repository: DataRepositor
     fun fetchWeatherDetails(location: Location) {
         viewModelScope.launch {
             val response = repository.getWeatherDetails(location)
-            if (response.isSuccessful) {
-                val details = response.body()
-                details?.let {
+            if (response.status == HttpStatusCode.OK) {
+                val details = response.body<WeatherDetails>()
+                details.let {
                     _weatherDetails.postValue(it)
                 }
             } else {

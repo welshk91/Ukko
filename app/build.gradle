@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id("dagger.hilt.android.plugin")
+    id 'org.jetbrains.kotlin.plugin.serialization' version '2.1.0'
 }
 
 android {
@@ -25,11 +26,15 @@ android {
         def TRUE = "true"
         def FALSE = "false"
 
+        def API_KEY = "API_KEY"
+        def OPENWEEATHERMAP_API_KEY = "\"41ff78382fe9fc7356ff694b1ec53714\""
+
         def USE_MOCK_DATA = "USE_MOCK_DATA"
         def MOCK_CURRENT_WEATHER = "MOCK_CURRENT_WEATHER"
         def MOCK_CURRENT_WEATHER_FILE = "\"tampa_thunderstorm.json\""
 
         release {
+            buildConfigField STRING, API_KEY, OPENWEEATHERMAP_API_KEY
             buildConfigField BOOLEAN, USE_MOCK_DATA, FALSE
             buildConfigField STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE
             minifyEnabled true
@@ -38,6 +43,7 @@ android {
         }
 
         debug {
+            buildConfigField STRING, API_KEY, OPENWEEATHERMAP_API_KEY
             buildConfigField BOOLEAN, USE_MOCK_DATA, FALSE
             buildConfigField STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE
             debuggable true
@@ -67,11 +73,15 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
 
     //Networking
-    implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-logging:$ktor_version"
+    implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
+    implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
+    implementation "io.ktor:ktor-client-mock:$ktor_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0'
 
     //Dependency Injection
     implementation "com.google.dagger:hilt-android:$hilt_version"

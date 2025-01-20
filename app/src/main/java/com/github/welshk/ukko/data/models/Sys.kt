@@ -1,18 +1,18 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Sys(
-    @SerializedName("type")
+    @SerialName("type")
     var type: Int,
-    @SerializedName("id")
+    @SerialName("id")
     var id: Int,
-    @SerializedName("message")
-    var message: Double,
-    @SerializedName("country")
+    @SerialName("country")
     var country: String,
-    @SerializedName("sunrise")
+    @SerialName("sunrise")
     var sunrise: Int,
-    @SerializedName("sunset")
+    @SerialName("sunset")
     var sunset: Int
 )

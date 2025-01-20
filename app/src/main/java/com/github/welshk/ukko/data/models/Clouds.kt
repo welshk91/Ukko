@@ -1,8 +1,10 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Clouds(
-    @SerializedName("all")
+    @SerialName("all")
     var all: Int
 )

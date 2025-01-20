@@ -1,14 +1,16 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Weather(
-    @SerializedName("id")
+    @SerialName("id")
     var id: Int,
-    @SerializedName("main")
+    @SerialName("main")
     var main: String,
-    @SerializedName("description")
+    @SerialName("description")
     var description: String,
-    @SerializedName("icon")
+    @SerialName("icon")
     var icon: String
 )

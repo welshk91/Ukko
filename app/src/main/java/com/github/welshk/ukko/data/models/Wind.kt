@@ -1,10 +1,12 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Wind(
-    @SerializedName("speed")
+    @SerialName("speed")
     var speed: Double,
-    @SerializedName("deg")
+    @SerialName("deg")
     var deg: Int
 )

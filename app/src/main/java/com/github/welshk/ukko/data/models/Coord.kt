@@ -1,10 +1,12 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Coord(
-    @SerializedName("lon")
+    @SerialName("lon")
     var longitude: Double,
-    @SerializedName("lat")
+    @SerialName("lat")
     var latitude: Double
 )

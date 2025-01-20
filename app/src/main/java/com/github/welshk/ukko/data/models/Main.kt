@@ -1,18 +1,20 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Main(
-    @SerializedName("temp")
+    @SerialName("temp")
     var temp: Double,
-    @SerializedName("feels_like")
+    @SerialName("feels_like")
     var feelsLike: Double,
-    @SerializedName("temp_min")
+    @SerialName("temp_min")
     var tempMin: Double,
-    @SerializedName("temp_max")
+    @SerialName("temp_max")
     var tempMax: Double,
-    @SerializedName("pressure")
+    @SerialName("pressure")
     var pressure: Int,
-    @SerializedName("humidity")
+    @SerialName("humidity")
     var humidity: Int
 )

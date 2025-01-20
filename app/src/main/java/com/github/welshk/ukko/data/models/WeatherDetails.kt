@@ -1,33 +1,34 @@
 package com.github.welshk.ukko.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-
+@Serializable
 data class WeatherDetails(
-   @SerializedName("coord")
+    @SerialName("coord")
     var coord: Coord,
-   @SerializedName("weather")
+    @SerialName("weather")
     var weather: ArrayList<Weather>,
-   @SerializedName("base")
+    @SerialName("base")
     var base: String,
-   @SerializedName("main")
+    @SerialName("main")
     var main: Main,
-   @SerializedName("visibility")
+    @SerialName("visibility")
     var visibility: Int,
-   @SerializedName("wind")
+    @SerialName("wind")
     var wind: Wind? = null,
-   @SerializedName("clouds")
+    @SerialName("clouds")
     var clouds: Clouds? = null,
-   @SerializedName("dt")
+    @SerialName("dt")
     var dt: Long,
-   @SerializedName("sys")
+    @SerialName("sys")
     var sys: Sys? = null,
-   @SerializedName("timezone")
+    @SerialName("timezone")
     var timezone: Int,
-   @SerializedName("id")
+    @SerialName("id")
     var id: Int,
-   @SerializedName("name")
+    @SerialName("name")
     var name: String? = null,
-   @SerializedName("cod")
+    @SerialName("cod")
     var cod: Int
 )
