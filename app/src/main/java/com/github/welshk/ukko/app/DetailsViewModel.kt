@@ -7,19 +7,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.welshk.ukko.data.DataRepository
 import com.github.welshk.ukko.data.models.WeatherDetails
-import dagger.hilt.android.lifecycle.HiltViewModel
 import io.ktor.client.call.body
 import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 /**
  * ViewModel for Details screen
  * Fetch weather data on initialization and post successful responses
  */
-@HiltViewModel
-class DetailsViewModel @Inject constructor(private val repository: DataRepository) :
-    ViewModel() {
+class DetailsViewModel(private val repository: DataRepository) : ViewModel() {
 
     val weatherDetails: LiveData<WeatherDetails>
         get() = _weatherDetails

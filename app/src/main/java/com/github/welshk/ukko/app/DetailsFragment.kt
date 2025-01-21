@@ -6,21 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.databinding.FragmentDetailsBinding
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Fragment for Details screen
  * Just observe any changes to LiveData in ViewModel so we can properly hide progressbar
  */
-@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
-    private val viewModelActivity: MainViewModel by activityViewModels()
-    private val viewModelFragment: DetailsViewModel by activityViewModels()
+    private val viewModelActivity: MainViewModel by activityViewModel()
+    private val viewModelFragment: DetailsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -4,22 +4,20 @@ import android.Manifest
 import android.location.Location
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.utils.LocationUtil
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Main activity.
  * Mainly makes sure we get proper Location info
  */
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModel()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var permissionRequest: ActivityResultLauncher<Array<String>>
 

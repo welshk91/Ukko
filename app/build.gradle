@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id("dagger.hilt.android.plugin")
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.1.0'
 }
 
@@ -84,8 +83,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0'
 
     //Dependency Injection
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    implementation "io.insert-koin:koin-androidx-startup:$koin_version"
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
 
     //Location Services
     implementation "com.google.android.gms:play-services-location:$play_services_location_version"

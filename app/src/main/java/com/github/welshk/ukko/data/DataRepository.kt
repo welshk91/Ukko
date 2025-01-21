@@ -6,14 +6,12 @@ import com.github.welshk.ukko.networking.Constants
 import com.github.welshk.ukko.networking.KtorClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
-import javax.inject.Singleton
 
 /**
  * Repository class.
  * In more advanced apps, this class would be responsible for getting data from a cache/database or
  * fetching data if not found. Currently we just always fetch data from the internet
  */
-@Singleton
 class DataRepository {
     suspend fun getWeatherDetails(
         location: Location,
