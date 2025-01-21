@@ -1,7 +1,6 @@
 package com.github.welshk.ukko.utils
 
 import android.widget.ImageView
-import androidx.databinding.BindingAdapter
 import com.github.welshk.ukko.data.models.WeatherDetails
 import com.github.welshk.ukko.views.GradientTransformation
 import com.github.welshk.ukko.views.RadialGradientTransformation
@@ -17,8 +16,7 @@ import com.squareup.picasso.Picasso
  * Looks like it's a server issue, though the browser seems fine...
  * https://stackoverflow.com/questions/66518908/load-image-by-picasso-in-recyclerview-by-databinding-kotlin
  */
-@BindingAdapter("iconUrl")
-fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
+fun ImageView.loadIconImage(weatherDetails: WeatherDetails?) {
     val iconUrl = FormatUtil.formatIconUrl(weatherDetails)
     if (iconUrl != null) {
         Picasso.get()
@@ -26,7 +24,7 @@ fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
 //            .placeholder(R.drawable.ic_launcher_foreground)
 //            .error(R.drawable.ic_launcher_background)
             .priority(Picasso.Priority.LOW)
-            .into(view)
+            .into(this)
 
 //        val picasso = Picasso.Builder(view.context).listener(
 //            object : Picasso.Listener{
@@ -41,17 +39,16 @@ fun loadIconImage(view: ImageView, weatherDetails: WeatherDetails?) {
     }
 }
 
-@BindingAdapter("heroImage")
-fun loadHeroImage(view: ImageView, weatherDetails: WeatherDetails?) {
+fun ImageView.loadHeroImage(weatherDetails: WeatherDetails?) {
     val gradientHeight = 1024
     if (weatherDetails != null) {
         Picasso.get()
             .load(HeroImageUtil.getHeroImage(weatherDetails).imageDrawable)
             .fit()
             .centerCrop()
-            .transform(GradientTransformation(view.context, gradientHeight))
-            .transform(RadialGradientTransformation(view.context))
+            .transform(GradientTransformation(this.context, gradientHeight))
+            .transform(RadialGradientTransformation(this.context))
             .priority(Picasso.Priority.HIGH)
-            .into(view)
+            .into(this)
     }
 }

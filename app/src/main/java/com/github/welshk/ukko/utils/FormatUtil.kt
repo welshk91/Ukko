@@ -1,5 +1,6 @@
 package com.github.welshk.ukko.utils
 
+import android.content.Context
 import android.view.View
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.data.models.WeatherDetails
@@ -11,40 +12,40 @@ import java.text.SimpleDateFormat
  */
 class FormatUtil {
     companion object {
-        fun formatTemperature(view: View, temperature: Int): String {
-            return view.context.getString(
+        fun formatTemperature(context: Context, temperature: Int): String {
+            return context.getString(
                 R.string.temp,
                 temperature
             )
         }
 
-        fun formatTemp(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatTemp(context: Context, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                formatTemperature(view, weatherDetails.main.temp.toInt())
+                formatTemperature(context, weatherDetails.main.temp.toInt())
             } else {
                 ""
             }
         }
 
-        fun formatTempLow(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatTempLow(context: Context, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                formatTemperature(view, weatherDetails.main.tempMin.toInt())
+                formatTemperature(context, weatherDetails.main.tempMin.toInt())
             } else {
                 ""
             }
         }
 
-        fun formatTempHigh(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatTempHigh(context: Context, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                formatTemperature(view, weatherDetails.main.tempMax.toInt())
+                formatTemperature(context, weatherDetails.main.tempMax.toInt())
             } else {
                 ""
             }
         }
 
-        fun formatFeelsLike(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatFeelsLike(context: Context, weatherDetails: WeatherDetails?): String {
             return if (weatherDetails != null) {
-                formatTemperature(view, weatherDetails.main.feelsLike.toInt())
+                formatTemperature(context, weatherDetails.main.feelsLike.toInt())
             } else {
                 ""
             }
@@ -75,11 +76,11 @@ class FormatUtil {
             }
         }
 
-        fun formatDescription(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatDescription(weatherDetails: WeatherDetails?): String {
             return weatherDetails?.weather?.get(0)?.description?.capitalizeWords ?: ""
         }
 
-        fun formatTime(view: View, weatherDetails: WeatherDetails?): String {
+        fun formatTime(weatherDetails: WeatherDetails?): String {
             val timeFormat: DateFormat = SimpleDateFormat("h:mm a")
             return if (weatherDetails != null) {
                 val date = DateUtil.getDate(weatherDetails.dt, weatherDetails.timezone)
