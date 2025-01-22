@@ -10,45 +10,54 @@ class HeroImageUtil {
         /**
          * https://openweathermap.org/weather-conditions
          */
-        fun getHeroImage(weatherDetails: WeatherDetails?): HeroImage {
+        fun getHeroImage(weatherDetails: WeatherDetails?): HeroImage? {
             if (weatherDetails != null) {
                 when (weatherDetails.weather.get(0).id) {
                     200 -> {
                         //Thunderstorm with light rain
                         return getThunderstormLightRain(weatherDetails)
                     }
+
                     201 -> {
                         //Thunderstorm with rain
                         return getThunderstormRain(weatherDetails)
                     }
+
                     202 -> {
                         //Thunderstorm with heavy rain
                         return getThunderstormHeavyRain(weatherDetails)
                     }
+
                     210 -> {
                         //Light thunderstorm
                         return getThunderstormLight(weatherDetails)
                     }
+
                     211 -> {
                         //Thunderstorm
                         return getThunderstorm(weatherDetails)
                     }
+
                     212 -> {
                         //Heavy thunderstorm
                         return getThunderstormHeavy(weatherDetails)
                     }
+
                     221 -> {
                         //Ragged thunderstorm
                         return getThunderstormRagged(weatherDetails)
                     }
+
                     230 -> {
                         //Thunderstorm with light drizzle
                         return getThunderstormLightDrizzle(weatherDetails)
                     }
+
                     231 -> {
                         //Thunderstorm with drizzle
                         return getThunderstormDrizzle(weatherDetails)
                     }
+
                     232 -> {
                         //Thunderstorm with heavy drizzle
                         return getThunderstormHeavyDrizzle(weatherDetails)
@@ -58,34 +67,42 @@ class HeroImageUtil {
                         //Light intensity drizzle
                         return getDrizzleLightIntensity(weatherDetails)
                     }
+
                     301 -> {
                         //Drizzle
                         return getDrizzle(weatherDetails)
                     }
+
                     302 -> {
                         //Heavy intensity drizzle
                         return getDrizzleHeavyIntensity(weatherDetails)
                     }
+
                     310 -> {
                         //Light intensity drizzle rain
                         return getDrizzleLightIntensityRain(weatherDetails)
                     }
+
                     311 -> {
                         //Drizzle rain
                         return getDrizzleRain(weatherDetails)
                     }
+
                     312 -> {
                         //Heavy intensity drizzle rain
                         return getDrizzleHeavyIntensityRain(weatherDetails)
                     }
+
                     313 -> {
                         //Shower rain and drizzle
                         return getDrizzleShowerRain(weatherDetails)
                     }
+
                     314 -> {
                         //Heavy shower rain and drizzle
                         return getDrizzleHeavyShowerRain(weatherDetails)
                     }
+
                     321 -> {
                         //Shower drizzle
                         return getDrizzleShower(weatherDetails)
@@ -95,38 +112,47 @@ class HeroImageUtil {
                         //Light rain
                         return getRainLight(weatherDetails)
                     }
+
                     501 -> {
                         //Moderate rain
                         return getRainModerate(weatherDetails)
                     }
+
                     502 -> {
                         //Heavy intensity rain
                         return getRainHeavyIntensity(weatherDetails)
                     }
+
                     503 -> {
                         //Very heavy rain
                         return getRainVeryHeavy(weatherDetails)
                     }
+
                     504 -> {
                         //Extreme rain
                         return getRainExtreme(weatherDetails)
                     }
+
                     511 -> {
                         //Freezing rain
                         return getRainFreezing(weatherDetails)
                     }
+
                     520 -> {
                         //Light intensity shower rain
                         return getRainLightIntensity(weatherDetails)
                     }
+
                     521 -> {
                         //Shower rain
                         return getRainShower(weatherDetails)
                     }
+
                     522 -> {
                         //Heavy intensity shower rain
                         return getRainHeavyIntensityShower(weatherDetails)
                     }
+
                     531 -> {
                         //Ragged shower rain
                         return getRainRaggedShower(weatherDetails)
@@ -136,42 +162,52 @@ class HeroImageUtil {
                         //Light snow
                         return getSnowLight(weatherDetails)
                     }
+
                     601 -> {
                         //Snow
                         return getSnow(weatherDetails)
                     }
+
                     602 -> {
                         //Heavy snow
                         return getSnowHeavy(weatherDetails)
                     }
+
                     611 -> {
                         //Sleet
                         return getSleet(weatherDetails)
                     }
+
                     612 -> {
                         //Light shower sleet
                         return getLightShowerSleet(weatherDetails)
                     }
+
                     613 -> {
                         //Shower sleet
                         return getShowerSleet(weatherDetails)
                     }
+
                     615 -> {
                         //Light rain and snow
                         return getSnowRainLight(weatherDetails)
                     }
+
                     616 -> {
                         //Rain and snow
                         return getSnowRain(weatherDetails)
                     }
+
                     620 -> {
                         //Light shower snow
                         return getLightShowerSnow(weatherDetails)
                     }
+
                     621 -> {
                         //Shower snow
                         return getShowerSnow(weatherDetails)
                     }
+
                     622 -> {
                         //Heavy shower snow
                         return getHeavyShowerSnow(weatherDetails)
@@ -181,38 +217,47 @@ class HeroImageUtil {
                         //Mist
                         return getMist(weatherDetails)
                     }
+
                     711 -> {
                         //Smoke
                         return getSmoke(weatherDetails)
                     }
+
                     721 -> {
                         //Haze
                         return getHaze(weatherDetails)
                     }
+
                     731 -> {
                         // Sand/dust whirls
                         return getSandDustWhirls(weatherDetails)
                     }
+
                     741 -> {
                         //Fog
                         return getFog(weatherDetails)
                     }
+
                     751 -> {
                         //Sand
                         return getSand(weatherDetails)
                     }
+
                     761 -> {
                         //Dust
                         return getDust(weatherDetails)
                     }
+
                     762 -> {
                         //Volcanic ash
                         return getVolcanicAsh(weatherDetails)
                     }
+
                     771 -> {
                         //Squalls
                         return getSqualls(weatherDetails)
                     }
+
                     781 -> {
                         //Tornado
                         return getTornado(weatherDetails)
@@ -227,26 +272,28 @@ class HeroImageUtil {
                         //Clouds(few)
                         return getCloudsFew(weatherDetails)
                     }
+
                     802 -> {
                         //Clouds(scattered)
                         return getCloudsScattered(weatherDetails)
                     }
+
                     803 -> {
                         //Clouds(broken)
                         return getCloudsBroken(weatherDetails)
                     }
+
                     804 -> {
                         //Clouds(overcast)
                         return getCloudsOvercast(weatherDetails)
                     }
 
                     else -> {
-                        return getStockWeather(weatherDetails)
+                        return null
                     }
                 }
             } else {
-                //Weather Details is null; show stock picture
-                return getStockWeather()
+                return null
             }
         }
 
@@ -256,6 +303,14 @@ class HeroImageUtil {
          */
         fun getStockWeather(): HeroImage {
             return HeroImage(R.color.black, "", "")
+        }
+
+        fun getPreviewWeather(): HeroImage {
+            return HeroImage(
+                R.drawable.michelle_mcewen_scrqmg2f6qo_unsplash,
+                "Michelle Mcewen",
+                "unsplash"
+            )
         }
 
         fun getStockWeather(weatherDetails: WeatherDetails?): HeroImage {

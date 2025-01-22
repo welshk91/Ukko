@@ -77,7 +77,6 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraint)
-    implementation(libs.navigation)
 
     //Networking
     implementation(libs.ktor.client.core)
@@ -90,19 +89,10 @@ dependencies {
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.mock)
 
-//    implementation "io.ktor:ktor-client-android:$ktor_version"
-//    implementation "io.ktor:ktor-client-core:$ktor_version"
-//    implementation "io.ktor:ktor-client-cio:$ktor_version"
-//    implementation "io.ktor:ktor-client-logging:$ktor_version"
-//    implementation "io.ktor:ktor-client-content-negotiation:$ktor_version"
-//    implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
-//    implementation "io.ktor:ktor-client-serialization:$ktor_version"
-//    implementation "io.ktor:ktor-client-mock:$ktor_version"
-//    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0"
-
     //Dependency Injection
     implementation(libs.koin.core)
     implementation(libs.koin.android)
+    implementation(libs.koin.android.compose)
     implementation(libs.koin.android.compat)
     implementation(libs.koin.android.startup)
     implementation(libs.koin.android.navigation)
@@ -110,10 +100,5 @@ dependencies {
     //Location Services
     implementation(libs.play.services.location)
 
-    //Picasso Image Loading Library
-    implementation(libs.picasso)
-
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    testImplementation(libs.junit)
 }

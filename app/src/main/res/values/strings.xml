@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">Ukko</string>
-    <string name="dashboard_button_fetch_details">Grab Current Weather Details</string>
-    <string name="snackbar_location_denied">No location details given. Show stock city</string>
 
     <string name="wind_speeds">Winds Up to %1$d mph</string>
     <string name="temp">%1$d&#176;</string>
-    <string name="temp_range">%1$d&#176;  (%2$d&#176; - %3$d&#176;)</string>
 </resources>

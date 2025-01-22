@@ -2,6 +2,7 @@ package com.github.welshk.ukko.app
 
 import android.app.Application
 import com.github.welshk.ukko.data.DataRepository
+import com.github.welshk.ukko.data.LocationRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.androix.startup.KoinStartup
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -19,6 +20,7 @@ class UkkoApplication : Application(), KoinStartup {
     override fun onKoinStartup() = koinConfiguration {
         val appModule = module {
             singleOf(::DataRepository)
+            singleOf(::LocationRepository)
             viewModelOf(::MainViewModel)
             viewModelOf(::DashboardViewModel)
             viewModelOf(::DetailsViewModel)

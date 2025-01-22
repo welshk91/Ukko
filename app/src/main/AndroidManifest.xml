@@ -15,8 +15,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ukko"
-        tools:targetApi="33">
+        android:theme="@style/AppTheme"
+        tools:targetApi="35">
 
         <activity
             android:name=".app.MainActivity"

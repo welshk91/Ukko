@@ -2,10 +2,15 @@ package com.github.welshk.ukko.data
 
 import android.location.Location
 import com.github.welshk.ukko.BuildConfig
+import com.github.welshk.ukko.data.models.WeatherDetails
 import com.github.welshk.ukko.networking.Constants
 import com.github.welshk.ukko.networking.KtorClient
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
+import io.ktor.http.HttpStatusCode
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 /**
  * Repository class.
@@ -13,6 +18,25 @@ import io.ktor.client.statement.HttpResponse
  * fetching data if not found. Currently we just always fetch data from the internet
  */
 class DataRepository {
+    val _showErrorMessage = MutableStateFlow(false)
+    val showErrorMessage = _showErrorMessage.asStateFlow()
+    val _weatherDetails = MutableStateFlow<WeatherDetails?>(null)
+    val weatherDetails = _weatherDetails.asStateFlow()
+
+    //Get the days data in detail
+    suspend fun fetchWeatherDetails(location: Location) {
+        val response = getWeatherDetails(location)
+        if (response.status == HttpStatusCode.OK) {
+            _showErrorMessage.value = false
+            val details = response.body<WeatherDetails>()
+            details.let {
+                _weatherDetails.value = it
+            }
+        } else {
+            _showErrorMessage.value = true
+        }
+    }
+
     suspend fun getWeatherDetails(
         location: Location,
         units: String = Constants.UNITS_IMPERIAL

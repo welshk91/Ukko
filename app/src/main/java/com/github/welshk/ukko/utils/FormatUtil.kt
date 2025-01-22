@@ -52,7 +52,7 @@ class FormatUtil {
         }
 
         fun formatCity(weatherDetails: WeatherDetails?): String {
-            return if (weatherDetails?.wind != null) {
+            return if (weatherDetails?.name != null) {
                 "${weatherDetails.name},"
             } else {
                 ""
