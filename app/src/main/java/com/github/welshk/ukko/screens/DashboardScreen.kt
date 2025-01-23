@@ -21,22 +21,22 @@ import com.github.welshk.ukko.ui.HeroImage
 import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.utils.HeroImageUtil
-import com.github.welshk.ukko.viewmodels.DetailsViewModel
+import com.github.welshk.ukko.viewmodels.DashboardViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun DetailsScreenRoute(
+fun DashboardScreenRoute(
     modifier: Modifier = Modifier,
-    viewModel: DetailsViewModel = koinViewModel()
+    viewModel: DashboardViewModel = koinViewModel()
 ) {
     val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
     when (uiState) {
-        DetailsViewModel.UiState.Error -> Unit
-        DetailsViewModel.UiState.Loading -> Unit
-        is DetailsViewModel.UiState.Success -> {
+        DashboardViewModel.UiState.Error -> Unit
+        DashboardViewModel.UiState.Loading -> Unit
+        is DashboardViewModel.UiState.Success -> {
             HideSystemBars()
-            DetailsScreen(
+            DashboardScreen(
                 modifier = modifier,
                 onSetPermissionRequest = { viewModel.setPermissionRequest() },
                 onLaunchPermissionRequest = viewModel::launchRequest,
@@ -58,7 +58,7 @@ fun DetailsScreenRoute(
 }
 
 @Composable
-fun DetailsScreen(
+fun DashboardScreen(
     modifier: Modifier = Modifier,
     onSetPermissionRequest: @Composable () -> Unit = {},
     onLaunchPermissionRequest: () -> Unit = {},
@@ -241,9 +241,9 @@ fun DetailsScreen(
 
 @Composable
 @PreviewLightDark
-private fun DetailsScreenPreview() {
+private fun DashboardScreenPreview() {
     UkkoTheme {
-        DetailsScreen(
+        DashboardScreen(
             permissionStatus = LocationPermission.NONE,
             heroImage = HeroImageUtil.getPreviewLightWeather(),
             city = "Tampa,",

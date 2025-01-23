@@ -11,8 +11,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
 /**
- * ViewModel for Test, our first screen
- * Not much on this screen other than handling moving to details screen
+ * ViewModel for Test, a test screen
  */
 class TestViewModel(
     private val context: Context,

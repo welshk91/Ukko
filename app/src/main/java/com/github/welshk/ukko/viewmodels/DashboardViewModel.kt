@@ -17,10 +17,10 @@ import kotlinx.coroutines.launch
 
 
 /**
- * ViewModel for Details screen
+ * ViewModel for Dashboard screen
  * Fetch weather data on initialization and post successful responses
  */
-class DetailsViewModel(
+class DashboardViewModel(
     private val context: Context,
     private val weatherRepo: WeatherRepository,
     private val locationRepo: LocationRepository

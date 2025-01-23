@@ -4,7 +4,7 @@ import android.app.Application
 import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.LocationRepository
 import com.github.welshk.ukko.viewmodels.TestViewModel
-import com.github.welshk.ukko.viewmodels.DetailsViewModel
+import com.github.welshk.ukko.viewmodels.DashboardViewModel
 import com.github.welshk.ukko.viewmodels.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androix.startup.KoinStartup
@@ -26,7 +26,7 @@ class UkkoApplication : Application(), KoinStartup {
             singleOf(::LocationRepository)
             viewModelOf(::MainViewModel)
             viewModelOf(::TestViewModel)
-            viewModelOf(::DetailsViewModel)
+            viewModelOf(::DashboardViewModel)
         }
 
         androidContext(this@UkkoApplication)

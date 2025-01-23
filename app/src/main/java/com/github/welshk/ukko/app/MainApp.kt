@@ -5,7 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.github.welshk.ukko.screens.DetailsScreenRoute
+import com.github.welshk.ukko.screens.DashboardScreenRoute
 import com.github.welshk.ukko.viewmodels.MainViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -18,7 +18,7 @@ fun MainApp(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            DetailsScreenRoute()
+            DashboardScreenRoute()
         }
     }
 }
