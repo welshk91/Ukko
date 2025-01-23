@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
 /**
- * ViewModel for Dashboard, our first screen
+ * ViewModel for Test, our first screen
  * Not much on this screen other than handling moving to details screen
  */
-class DashboardViewModel(
+class TestViewModel(
     private val context: Context,
     private val locationRepo: LocationRepository
 ) : ViewModel() {

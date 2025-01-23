@@ -11,24 +11,24 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.welshk.ukko.app.UkkoTheme
 import com.github.welshk.ukko.data.LocationPermission
-import com.github.welshk.ukko.viewmodels.DashboardViewModel
+import com.github.welshk.ukko.viewmodels.TestViewModel
 import org.koin.androidx.compose.koinViewModel
 
 /**
- * Dashboard, our opening screen.
+ * Test, our opening screen.
  * We no longer start this screen; it's currently just a button to go to test
  */
 @Composable
-fun DashboardScreenRoute(
+fun TestScreenRoute(
     modifier: Modifier = Modifier,
-    viewModel: DashboardViewModel = koinViewModel()
+    viewModel: TestViewModel = koinViewModel()
 ) {
     val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
     when (uiState) {
-        DashboardViewModel.UiState.Loading -> Unit
-        is DashboardViewModel.UiState.Success -> {
-            DashboardScreen(
+        TestViewModel.UiState.Loading -> Unit
+        is TestViewModel.UiState.Success -> {
+            TestScreen(
                 modifier = modifier,
                 onSetPermissionRequest = { viewModel.setPermissionRequest() },
                 buttonText = uiState.buttonText,
@@ -41,7 +41,7 @@ fun DashboardScreenRoute(
 }
 
 @Composable
-fun DashboardScreen(
+fun TestScreen(
     modifier: Modifier = Modifier,
     onSetPermissionRequest: @Composable () -> Unit = {},
     buttonText: String,
@@ -101,9 +101,9 @@ fun DashboardScreen(
 
 @Composable
 @Preview
-private fun DashboardScreenPreview() {
+private fun TestScreenPreview() {
     UkkoTheme {
-        DashboardScreen(
+        TestScreen(
             buttonText = "Get location",
             permissionText = "Has Permission: ${LocationPermission.COURSE}",
             locationText = "Location: -84, 12",
