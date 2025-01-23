@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.data.models
+package com.github.welshk.ukko.data.models.openweathermap
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

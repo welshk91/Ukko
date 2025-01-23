@@ -1,10 +1,10 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.viewmodels
 
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.welshk.ukko.data.DataRepository
+import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.LocationRepository
 import com.github.welshk.ukko.data.models.HeroImage
@@ -22,18 +22,18 @@ import kotlinx.coroutines.launch
  */
 class DetailsViewModel(
     private val context: Context,
-    private val dataRepo: DataRepository,
+    private val weatherRepo: WeatherRepository,
     private val locationRepo: LocationRepository
 ) : ViewModel() {
     private val hasPermissionFlow = locationRepo.permissionStatus
-    private val weatherFlow = dataRepo.weatherDetails
+    private val weatherFlow = weatherRepo.weatherDetails
     private val locationFlow = locationRepo.userLocation
 
     init {
         viewModelScope.launch {
             locationRepo.userLocation.collect { location ->
                 location?.let {
-                    dataRepo.fetchWeatherDetails(location)
+                    weatherRepo.fetchWeatherDetails(location)
                 }
             }
         }

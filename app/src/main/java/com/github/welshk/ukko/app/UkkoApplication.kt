@@ -1,8 +1,11 @@
 package com.github.welshk.ukko.app
 
 import android.app.Application
-import com.github.welshk.ukko.data.DataRepository
+import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.LocationRepository
+import com.github.welshk.ukko.viewmodels.DashboardViewModel
+import com.github.welshk.ukko.viewmodels.DetailsViewModel
+import com.github.welshk.ukko.viewmodels.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androix.startup.KoinStartup
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -19,7 +22,7 @@ import org.koin.dsl.module
 class UkkoApplication : Application(), KoinStartup {
     override fun onKoinStartup() = koinConfiguration {
         val appModule = module {
-            singleOf(::DataRepository)
+            singleOf(::WeatherRepository)
             singleOf(::LocationRepository)
             viewModelOf(::MainViewModel)
             viewModelOf(::DashboardViewModel)

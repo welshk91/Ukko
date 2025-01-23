@@ -2,7 +2,7 @@ package com.github.welshk.ukko.data
 
 import android.location.Location
 import com.github.welshk.ukko.BuildConfig
-import com.github.welshk.ukko.data.models.WeatherDetails
+import com.github.welshk.ukko.data.models.openweathermap.WeatherDetails
 import com.github.welshk.ukko.networking.Constants
 import com.github.welshk.ukko.networking.KtorClient
 import io.ktor.client.call.body
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.asStateFlow
  * In more advanced apps, this class would be responsible for getting data from a cache/database or
  * fetching data if not found. Currently we just always fetch data from the internet
  */
-class DataRepository {
+class WeatherRepository {
     val _showErrorMessage = MutableStateFlow(false)
     val showErrorMessage = _showErrorMessage.asStateFlow()
     val _weatherDetails = MutableStateFlow<WeatherDetails?>(null)

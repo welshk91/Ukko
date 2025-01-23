@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.viewmodels
 
 import androidx.lifecycle.ViewModel
 

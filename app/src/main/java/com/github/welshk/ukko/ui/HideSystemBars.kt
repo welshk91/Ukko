@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect

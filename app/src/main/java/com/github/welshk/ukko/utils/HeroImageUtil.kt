@@ -2,7 +2,7 @@ package com.github.welshk.ukko.utils
 
 import com.github.welshk.ukko.R
 import com.github.welshk.ukko.data.models.HeroImage
-import com.github.welshk.ukko.data.models.WeatherDetails
+import com.github.welshk.ukko.data.models.openweathermap.WeatherDetails
 
 class HeroImageUtil {
     companion object {

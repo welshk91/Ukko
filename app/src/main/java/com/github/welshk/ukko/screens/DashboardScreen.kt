@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -9,7 +9,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.github.welshk.ukko.app.UkkoTheme
 import com.github.welshk.ukko.data.LocationPermission
+import com.github.welshk.ukko.viewmodels.DashboardViewModel
 import org.koin.androidx.compose.koinViewModel
 
 /**

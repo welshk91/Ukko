@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,9 +18,18 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.github.welshk.ukko.app.Fonts
+import com.github.welshk.ukko.app.UkkoTheme
+import com.github.welshk.ukko.app.gradient
+import com.github.welshk.ukko.app.header
+import com.github.welshk.ukko.app.headerOutline
+import com.github.welshk.ukko.app.radialGradient
 import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.models.HeroImage
+import com.github.welshk.ukko.ui.HideSystemBars
+import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.utils.HeroImageUtil
+import com.github.welshk.ukko.viewmodels.DetailsViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

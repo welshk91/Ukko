@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.ui
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -14,6 +14,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import com.github.welshk.ukko.app.Fonts
+import com.github.welshk.ukko.app.UkkoTheme
+import com.github.welshk.ukko.app.header
+import com.github.welshk.ukko.app.headerOutline
 
 /**
  * Text with an outline/border

@@ -3,7 +3,7 @@ package com.github.welshk.ukko.utils
 import android.content.Context
 import android.view.View
 import com.github.welshk.ukko.R
-import com.github.welshk.ukko.data.models.WeatherDetails
+import com.github.welshk.ukko.data.models.openweathermap.WeatherDetails
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 

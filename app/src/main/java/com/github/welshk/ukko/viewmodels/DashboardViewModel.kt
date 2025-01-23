@@ -1,4 +1,4 @@
-package com.github.welshk.ukko.app
+package com.github.welshk.ukko.viewmodels
 
 import android.content.Context
 import androidx.compose.runtime.Composable
