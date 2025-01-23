@@ -18,22 +18,21 @@ import kotlinx.coroutines.flow.asStateFlow
  * fetching data if not found. Currently we just always fetch data from the internet
  */
 class WeatherRepository {
-    val _showErrorMessage = MutableStateFlow(false)
-    val showErrorMessage = _showErrorMessage.asStateFlow()
     val _weatherDetails = MutableStateFlow<WeatherDetails?>(null)
     val weatherDetails = _weatherDetails.asStateFlow()
+
+    val _httpCode = MutableStateFlow<HttpStatusCode?>(null)
+    val httpCode = _httpCode.asStateFlow()
 
     //Get the days data in detail
     suspend fun fetchWeatherDetails(location: Location) {
         val response = getWeatherDetails(location)
+        _httpCode.value = response.status
         if (response.status == HttpStatusCode.OK) {
-            _showErrorMessage.value = false
             val details = response.body<WeatherDetails>()
             details.let {
                 _weatherDetails.value = it
             }
-        } else {
-            _showErrorMessage.value = true
         }
     }
 
@@ -56,4 +55,8 @@ class WeatherRepository {
             }
         }
     }
+}
+
+fun HttpStatusCode.showWarning() : Boolean {
+    return this.value !in 200..210
 }
