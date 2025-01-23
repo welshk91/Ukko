@@ -1,16 +1,9 @@
 package com.github.welshk.ukko.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
@@ -20,12 +13,11 @@ import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.welshk.ukko.app.Fonts
 import com.github.welshk.ukko.app.UkkoTheme
-import com.github.welshk.ukko.app.gradient
 import com.github.welshk.ukko.app.header
 import com.github.welshk.ukko.app.headerOutline
-import com.github.welshk.ukko.app.radialGradient
 import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.models.HeroImage
+import com.github.welshk.ukko.ui.HeroImage
 import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.utils.HeroImageUtil
@@ -111,37 +103,15 @@ fun DetailsScreen(
         ) = createRefs()
 
         heroImage?.let {
-            val gradientColors = MaterialTheme.colorScheme.gradient
-            val radialGradientColors = MaterialTheme.colorScheme.radialGradient
-
-            Image(
+            HeroImage(
                 modifier = Modifier
                     .constrainAs(heroRef) {
                         top.linkTo(parent.top)
                         bottom.linkTo(parent.bottom)
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
-                    }
-                    .drawWithCache {
-                        val gradient = Brush.verticalGradient(
-                            colors = gradientColors,
-                            startY = size.height * .7f,
-                            endY = size.height
-                        )
-                        val radialGradient = Brush.radialGradient(
-                            colors = radialGradientColors,
-                            center = Offset.Zero,
-                            radius = size.width * .9f
-                        )
-                        onDrawWithContent {
-                            drawContent()
-                            drawRect(radialGradient, blendMode = BlendMode.Multiply)
-                            drawRect(gradient, blendMode = BlendMode.Multiply)
-                        }
                     },
-                painter = painterResource(it.imageDrawable),
-                contentScale = ContentScale.FillBounds,
-                contentDescription = null
+                heroImage = it
             )
         }
 
