@@ -6,7 +6,9 @@
 ## Description
 This app started as a basic coding assessment for a client. Barebones functionality, but organized & clean.
 
-Written in Kotlin leveraging the [OpenWeatherMap API](https://openweathermap.org/api), this app uses the standard pillars of Android development: [Retrofit](https://square.github.io/retrofit/) for networking, [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for Dependency Injection, [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel), and [Databinding](https://developer.android.com/topic/libraries/data-binding) in an [MVVM](https://www.journaldev.com/20292/android-mvvm-design-pattern) pattern. 
+Written in [Kotlin](https://kotlinlang.org/) & [Compose](https://developer.android.com/compose), this app uses the standard pillars of Android development: [Ktor](https://ktor.io/) for networking, [Koin](https://insert-koin.io/) for Dependency Injection, [Flows](https://developer.android.com/kotlin/flow), and [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel) in an [MVI](https://medium.com/swlh/mvi-architecture-with-android-fcde123e3c4a) pattern.
+
+An older version, found [here](https://github.com/welshk91/Ukko/tree/746cf840c5c5c17ca70e8cea149ed50bd703ebd7), was using [Retrofit](https://square.github.io/retrofit/) for networking, [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for Dependency Injection, [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel), and [Databinding](https://developer.android.com/topic/libraries/data-binding) in an [MVVM](https://www.journaldev.com/20292/android-mvvm-design-pattern) pattern.
 
 ## Screen Shots
 ![San Diego - Clear](Screenshots/san_diego_clear_framed.png?raw=true)
@@ -17,11 +19,13 @@ Written in Kotlin leveraging the [OpenWeatherMap API](https://openweathermap.org
 
 
 ## Improvements
-* Add more background images depiciting the weather status
-* Improve fonts
 * Add a [side sheet](https://m2.material.io/components/sheets-side) with more details and five day [forecast](https://openweathermap.org/forecast5)
+* Add alternative Weather APIs
+* Add more background images depiciting the weather status
+* Add Unit Testing
 
 ## Sources
+* [OpenWeatherMap API](https://openweathermap.org/api)
 * [Unsplash](https://unsplash.com/s/photos/weather)
 * [MockuPhone](https://mockuphone.com/)
 
