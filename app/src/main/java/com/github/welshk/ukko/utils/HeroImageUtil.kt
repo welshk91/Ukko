@@ -305,10 +305,18 @@ class HeroImageUtil {
             return HeroImage(R.color.black, "", "")
         }
 
-        fun getPreviewWeather(): HeroImage {
+        fun getPreviewDarkWeather(): HeroImage {
             return HeroImage(
                 R.drawable.michelle_mcewen_scrqmg2f6qo_unsplash,
                 "Michelle Mcewen",
+                "unsplash"
+            )
+        }
+
+        fun getPreviewLightWeather(): HeroImage {
+            return HeroImage(
+                R.drawable.alfred_kenneally_le9htzxhsty_unsplash,
+                "Alfred Kenneally",
                 "unsplash"
             )
         }

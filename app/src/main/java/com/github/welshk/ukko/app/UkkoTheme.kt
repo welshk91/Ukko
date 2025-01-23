@@ -81,17 +81,23 @@ val ColorScheme.header: Color
     @Composable
     get() = if (isSystemInDarkTheme()) Colors.Dark.Text else Colors.Light.Text
 
+val ColorScheme.headerOutline: Color
+    @Composable
+    get() = if (isSystemInDarkTheme()) Colors.Dark.TextOutline else Colors.Light.TextOutline
+
 val ColorScheme.gradient: List<Color>
     @Composable
     get() =
         if (isSystemInDarkTheme()) listOf(
             Colors.Dark.GradientStart,
+            Colors.Dark.GradientMiddleStart,
             Colors.Dark.GradientMiddle,
             Colors.Dark.GradientMiddleEnd,
             Colors.Dark.GradientEnd
         )
         else listOf(
             Colors.Light.GradientStart,
+            Colors.Light.GradientMiddleStart,
             Colors.Light.GradientMiddle,
             Colors.Light.GradientMiddleEnd,
             Colors.Light.GradientEnd

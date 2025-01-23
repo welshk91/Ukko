@@ -9,7 +9,7 @@ object Colors {
 
     private val VeryDarkBrown = Color(0xFF2F2A27)
 
-    private val NearBlack = Color(0xFF131313)
+    private val NearBlack = Color(0xFF0A0A0A)
     private val VeryDarkGray = Color(0xFF45423F)
     private val DarkGray = Color(0xFF5A5653)
     private val LightGray = Color(0xFF949494)
@@ -47,19 +47,21 @@ object Colors {
         val ErrorContainer = RedMostlyTransparent
 
         // Custom
-        val Text = OnSurface
-        val BackgroundGradiant = Surface
+        val Text = Dark.Text
+        val TextOutline = Dark.TextOutline
+        val BackgroundGradiant = Dark.BackgroundGradiant
 
-        val GradientStart = Color(0x00FFFFFF)
-        val GradientMiddle = Color(0xBFFFFFFF)
-        val GradientMiddleEnd = Color(0xE6FFFFFF)
-        val GradientEnd = Color(0xFFFFFFFF)
+        val GradientStart = Dark.GradientStart
+        val GradientMiddleStart = Dark.GradientMiddleStart
+        val GradientMiddle = Dark.GradientMiddle
+        val GradientMiddleEnd = Dark.GradientMiddleEnd
+        val GradientEnd = Dark.GradientEnd
 
-        val RadialGradientStart = Color(0xFFFFFFFF)
-        val RadialGradientMiddleStart = Color(0xCCFFFFFF)
-        val RadialGradientMiddle = Color(0x99FFFFFF)
-        val RadialGradientMiddleEnd = Color(0x33FFFFFF)
-        val RadialGradientEnd = Color(0x00FFFFFF)
+        val RadialGradientStart = Dark.RadialGradientStart
+        val RadialGradientMiddleStart = Dark.RadialGradientMiddleStart
+        val RadialGradientMiddle = Dark.RadialGradientMiddle
+        val RadialGradientMiddleEnd = Dark.RadialGradientMiddleEnd
+        val RadialGradientEnd = Dark.RadialGradientEnd
 
         val ProgressBar = Blue
     }
@@ -81,10 +83,12 @@ object Colors {
 
         // Custom
         val Text = OnSurface
+        val TextOutline = Surface.copy(alpha = .8f)
         val BackgroundGradiant = Surface
 
         val GradientStart = Color(0x00131313)
-        val GradientMiddle = Color(0xBF131313)
+        val GradientMiddleStart = Color(0x66131313)
+        val GradientMiddle = Color(0xB3131313)
         val GradientMiddleEnd = Color(0xE6131313)
         val GradientEnd = Color(0xFF131313)
 

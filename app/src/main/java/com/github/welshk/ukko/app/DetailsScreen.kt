@@ -3,7 +3,6 @@ package com.github.welshk.ukko.app
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
@@ -12,7 +11,6 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
@@ -85,8 +83,6 @@ fun DetailsScreen(
         onStopOrDispose { }
     }
 
-    val radialGradientColors = MaterialTheme.colorScheme.radialGradient
-
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()
@@ -107,6 +103,7 @@ fun DetailsScreen(
 
         heroImage?.let {
             val gradientColors = MaterialTheme.colorScheme.gradient
+            val radialGradientColors = MaterialTheme.colorScheme.radialGradient
 
             Image(
                 modifier = Modifier
@@ -139,135 +136,126 @@ fun DetailsScreen(
             )
         }
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(cityRef) {
                     top.linkTo(parent.top, margin = 12.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = city,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontWeight = FontWeight.Bold,
-                fontSize = 42.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 42.sp,
+            fontFamily = Fonts.ubuntu,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(countryRef) {
                     bottom.linkTo(cityRef.bottom)
                     start.linkTo(cityRef.end, margin = 6.dp)
                 },
             text = country,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 14.sp,
+            fontFamily = Fonts.ubuntu,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(timeRef) {
                     top.linkTo(cityRef.bottom, margin = 12.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = time,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontWeight = FontWeight.Light,
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 14.sp,
+            fontFamily = Fonts.ubuntu,
+            fontWeight = FontWeight.Light,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(descriptionRef) {
                     bottom.linkTo(tempHighRef.top, margin = 6.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = description,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 22.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontFamily = Fonts.ubuntu,
+            fontSize = 22.sp,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(tempLowRef) {
                     bottom.linkTo(tempRef.top, margin = 12.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = tempLow,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 18.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 18.sp,
+            fontFamily = Fonts.ubuntu,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(tempHighRef) {
                     bottom.linkTo(tempRef.top, margin = 12.dp)
                     start.linkTo(tempLowRef.end, margin = 18.dp)
                 },
             text = tempHigh,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 18.sp,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 18.sp,
+            fontFamily = Fonts.ubuntu,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(tempRef) {
                     bottom.linkTo(parent.bottom, margin = 12.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = temp,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 96.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 96.sp,
+            fontFamily = Fonts.ubuntu,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(authorRef) {
                     bottom.linkTo(siteRef.top, margin = 4.dp)
                     end.linkTo(parent.end, margin = 12.dp)
                 },
             text = author,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Light,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 12.sp,
+            fontFamily = Fonts.ubuntu,
+            fontWeight = FontWeight.Light,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
 
-        Text(
+        OutlineText(
             modifier = Modifier
                 .constrainAs(siteRef) {
                     bottom.linkTo(parent.bottom, margin = 12.dp)
                     end.linkTo(parent.end, margin = 12.dp)
                 },
             text = site,
-            style = TextStyle(
-                fontFamily = Fonts.ubuntu,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Light,
-                color = MaterialTheme.colorScheme.header
-            )
+            fontSize = 12.sp,
+            fontFamily = Fonts.ubuntu,
+            fontWeight = FontWeight.Light,
+            color = MaterialTheme.colorScheme.header,
+            colorOutline = MaterialTheme.colorScheme.headerOutline
         )
     }
 }
@@ -278,11 +266,11 @@ private fun DetailsScreenPreview() {
     UkkoTheme {
         DetailsScreen(
             permissionStatus = LocationPermission.NONE,
-            heroImage = HeroImageUtil.getPreviewWeather(),
+            heroImage = HeroImageUtil.getPreviewLightWeather(),
             city = "Tampa,",
             country = "USA",
             time = "10:35 PM",
-            description = "Thunderstorm",
+            description = "Overcast Clouds",
             icon = "",
             tempLow = "56",
             tempHigh = "65",
