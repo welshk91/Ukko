@@ -12,6 +12,7 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
@@ -19,16 +20,17 @@ import androidx.compose.ui.window.PopupProperties
 @Composable
 fun AnimatedSlideOut(
     modifier: Modifier = Modifier,
+    alignment: Alignment = Alignment.CenterEnd,
     visible: Boolean,
     enter: EnterTransition = slideInHorizontally(
-        initialOffsetX = { -it },
+        initialOffsetX = { it },
         animationSpec = tween(
             durationMillis = 400,
             easing = EaseOut
         )
     ),
     exit: ExitTransition = slideOutHorizontally(
-        targetOffsetX = { -it },
+        targetOffsetX = { it },
         animationSpec = tween(
             durationMillis = 200,
             easing = EaseIn
@@ -43,6 +45,7 @@ fun AnimatedSlideOut(
 
     if (visibleState.currentState || visibleState.targetState || !visibleState.isIdle) {
         Popup(
+            alignment,
             onDismissRequest = onDismissRequest,
             properties = popupProperties
         ) {

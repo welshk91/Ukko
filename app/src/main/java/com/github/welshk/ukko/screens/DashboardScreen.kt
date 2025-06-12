@@ -2,7 +2,7 @@ package com.github.welshk.ukko.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,7 +19,6 @@ import com.github.welshk.ukko.app.headerOutline
 import com.github.welshk.ukko.data.models.HeroImage
 import com.github.welshk.ukko.ui.AnimatedSlideOut
 import com.github.welshk.ukko.ui.HeroImage
-import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.utils.HeroImageUtil
 import com.github.welshk.ukko.viewmodels.DashboardViewModel
@@ -234,12 +233,13 @@ fun DashboardScreen(
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
                     end.linkTo(parent.end)
-                }
-                .width(250.dp),
+                },
             visible = shouldShowForecast,
             onDismissRequest = onForecastClicked
         ) {
-            ForecastScreenRoute()
+            ForecastScreenRoute(
+                modifier = Modifier.fillMaxWidth(0.8f)
+            )
         }
     }
 }
