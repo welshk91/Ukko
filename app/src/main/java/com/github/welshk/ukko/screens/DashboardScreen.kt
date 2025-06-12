@@ -36,7 +36,6 @@ fun DashboardScreenRoute(
         DashboardViewModel.UiState.Error -> Unit
         DashboardViewModel.UiState.Loading -> Unit
         is DashboardViewModel.UiState.Success -> {
-            HideSystemBars()
             DashboardScreen(
                 modifier = modifier,
                 heroImage = uiState.heroImage,

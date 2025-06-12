@@ -9,6 +9,7 @@ import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.screens.DashboardScreenRoute
+import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.viewmodels.MainViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -21,6 +22,7 @@ fun MainApp(
         MainViewModel.UiState.Error -> Unit
         MainViewModel.UiState.Loading -> Unit
         is MainViewModel.UiState.Success -> {
+            HideSystemBars()
             val permissionStatus = uiState.permissionStatus
 
             viewModel.setPermissionRequest()

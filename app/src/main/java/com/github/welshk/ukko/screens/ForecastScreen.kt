@@ -44,7 +44,6 @@ fun ForecastScreenRoute(
         SlideoutViewModel.UiState.Error -> Unit
         SlideoutViewModel.UiState.Loading -> Unit
         is SlideoutViewModel.UiState.Success -> {
-            HideSystemBars()
             ForecastScreen(
                 modifier = modifier,
                 daysForecast = uiState.daysForecast
