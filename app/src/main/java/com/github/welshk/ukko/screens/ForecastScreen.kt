@@ -14,10 +14,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.github.welshk.ukko.app.Colors
 import com.github.welshk.ukko.app.UkkoTheme
 import com.github.welshk.ukko.data.models.openweathermap.forecast.City
 import com.github.welshk.ukko.data.models.openweathermap.forecast.Coord
@@ -59,8 +61,8 @@ fun ForecastScreen(
 
     Column(
         modifier = modifier
+            .background(Colors.Dark.GradientMiddle)
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
 
         LazyColumn(
@@ -88,6 +90,7 @@ fun ForecastItem(
                 SolidColor(MaterialTheme.colorScheme.onSecondaryContainer),
                 shape = RoundedCornerShape(15.dp)
             )
+            .background(MaterialTheme.colorScheme.surfaceVariant, shape = RoundedCornerShape(15.dp))
             .padding(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

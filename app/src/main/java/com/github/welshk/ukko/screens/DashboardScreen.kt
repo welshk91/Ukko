@@ -236,7 +236,7 @@ fun DashboardScreen(
                     bottom.linkTo(parent.bottom)
                     end.linkTo(parent.end)
                 }
-                .width(200.dp),
+                .width(250.dp),
             visible = shouldShowForecast,
             onDismissRequest = onForecastClicked
         ) {
