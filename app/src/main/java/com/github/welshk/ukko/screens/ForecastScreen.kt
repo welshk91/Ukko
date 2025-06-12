@@ -5,7 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -59,7 +59,7 @@ fun ForecastScreen(
 
     Column(
         modifier = modifier
-            .fillMaxHeight()
+            .fillMaxSize()
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
 
@@ -149,7 +149,36 @@ private fun ForecastScreenPreview() {
     UkkoTheme {
         ForecastScreen(
             daysForecast = Forecast(
-                list = arrayListOf(),
+                list = arrayListOf(
+                    List(
+                        dt = null,
+                        main = Main(
+                            temp = 296.76,
+                            feelsLike = 296.98,
+                            tempMin = 296.76,
+                            tempMax = 297.87,
+                            pressure = 1015,
+                            humidity = 69
+                        ),
+                        weather = arrayListOf(
+                            Weather(
+                                id = 1,
+                                main = "Rain",
+                                description = "light rain",
+                                icon = "10d"
+                            )
+                        ),
+                        clouds = null,
+                        wind = null,
+                        visibility = null,
+                        pop = null,
+                        rain = null,
+                        sys = Sys(
+                            pod = "pod"
+                        ),
+                        dtTxt = "2022-08-30 15:00:00"
+                    )
+                ),
                 city = City(
                     coord = Coord(
                         longitude = -82.45,
