@@ -11,7 +11,7 @@ material-lib = "1.12.0"
 constraintlayout = "1.1.1"
 ktor = "3.0.3"
 kotlinx-serialization = "1.8.1"
-koin = "4.0.1"
+koin = "4.1.0"
 play-location = "21.3.0"
 
 
