@@ -37,12 +37,16 @@ android {
         val API_KEY = "API_KEY"
         val OPENWEEATHERMAP_API_KEY = "\"41ff78382fe9fc7356ff694b1ec53714\""
 
+        val BASE_URL = "BASE_URL"
+        val BASE_URL_OPENWEATHERMAP_API = "\"https://api.openweathermap.org/data/2.5/\""
+
         val USE_MOCK_DATA = "USE_MOCK_DATA"
         val MOCK_CURRENT_WEATHER = "MOCK_CURRENT_WEATHER"
         val MOCK_CURRENT_WEATHER_FILE = "\"tampa_thunderstorm.json\""
 
         getByName("release") {
             buildConfigField(STRING, API_KEY, OPENWEEATHERMAP_API_KEY)
+            buildConfigField(STRING, BASE_URL, BASE_URL_OPENWEATHERMAP_API)
             buildConfigField(BOOLEAN, USE_MOCK_DATA, FALSE)
             buildConfigField(STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE)
             isMinifyEnabled = false
@@ -50,6 +54,7 @@ android {
 
         getByName("debug") {
             buildConfigField(STRING, API_KEY, OPENWEEATHERMAP_API_KEY)
+            buildConfigField(STRING, BASE_URL, BASE_URL_OPENWEATHERMAP_API)
             buildConfigField(BOOLEAN, USE_MOCK_DATA, FALSE)
             buildConfigField(STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE)
             isMinifyEnabled = false

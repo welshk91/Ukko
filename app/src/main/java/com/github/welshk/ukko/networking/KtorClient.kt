@@ -18,9 +18,10 @@ import io.ktor.utils.io.ByteReadChannel
 import kotlinx.serialization.json.Json
 
 object KtorClient {
-    private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-
-    fun getInstance(engine: HttpClientEngine = CIO.create()): HttpClient {
+    fun getInstance(
+        engine: HttpClientEngine = CIO.create(),
+        baseUrl: String = BuildConfig.BASE_URL
+    ): HttpClient {
         return HttpClient(engine) {
             install(ContentNegotiation) {
                 json(
@@ -33,7 +34,7 @@ object KtorClient {
                 )
             }
             defaultRequest {
-                url(BASE_URL)
+                url(baseUrl)
             }
         }
     }
