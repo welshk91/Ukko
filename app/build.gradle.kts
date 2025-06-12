@@ -110,6 +110,9 @@ dependencies {
     implementation(libs.play.services.location)
 
     testImplementation(libs.junit)
+    testImplementation(libs.kotlin.test)
     testImplementation(libs.koin.test)
     testImplementation(libs.koin.test.junit)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
 }
