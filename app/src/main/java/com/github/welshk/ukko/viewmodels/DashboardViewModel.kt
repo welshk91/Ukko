@@ -8,7 +8,10 @@ import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.models.HeroImage
 import com.github.welshk.ukko.utils.FormatUtil
 import com.github.welshk.ukko.utils.HeroImageUtil
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -26,6 +29,9 @@ class DashboardViewModel(
     private val weatherFlow = weatherRepo.weather
     private val locationFlow = locationRepo.userLocation
 
+    private val _shouldShowForecast = MutableStateFlow(false)
+    private val shouldShowForecastFlow: StateFlow<Boolean> = _shouldShowForecast.asStateFlow()
+
     init {
         viewModelScope.launch {
             locationRepo.userLocation.collect { location ->
@@ -38,8 +44,9 @@ class DashboardViewModel(
 
     val uiState = combine(
         weatherFlow,
-        locationFlow
-    ) { weather, location ->
+        locationFlow,
+        shouldShowForecastFlow
+    ) { weather, location, shouldShowForecast ->
         UiState.Success(
             heroImage = HeroImageUtil.getHeroImage(weather),
             city = FormatUtil.formatCity(weather),
@@ -51,13 +58,18 @@ class DashboardViewModel(
             tempHigh = FormatUtil.formatTempHigh(context, weather),
             temp = FormatUtil.formatTemp(context, weather),
             author = HeroImageUtil.getHeroImage(weather)?.author.toString(),
-            site = HeroImageUtil.getHeroImage(weather)?.site.toString()
+            site = HeroImageUtil.getHeroImage(weather)?.site.toString(),
+            shouldShowForecast = shouldShowForecast
         )
     }.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5_000),
         UiState.Loading
     )
+
+    fun onForecastClicked() {
+        _shouldShowForecast.value = !_shouldShowForecast.value
+    }
 
     sealed interface UiState {
         data object Loading : UiState
@@ -73,7 +85,8 @@ class DashboardViewModel(
             val tempHigh: String,
             val temp: String,
             val author: String,
-            val site: String
+            val site: String,
+            val shouldShowForecast: Boolean
         ) : UiState
     }
 }

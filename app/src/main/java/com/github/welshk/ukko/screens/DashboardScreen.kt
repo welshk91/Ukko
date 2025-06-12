@@ -1,6 +1,8 @@
 package com.github.welshk.ukko.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,14 +11,13 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.welshk.ukko.app.Fonts
 import com.github.welshk.ukko.app.UkkoTheme
 import com.github.welshk.ukko.app.header
 import com.github.welshk.ukko.app.headerOutline
-import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.models.HeroImage
+import com.github.welshk.ukko.ui.AnimatedSlideOut
 import com.github.welshk.ukko.ui.HeroImage
 import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.ui.OutlineText
@@ -48,7 +49,9 @@ fun DashboardScreenRoute(
                 tempHigh = uiState.tempHigh,
                 temp = uiState.temp,
                 author = uiState.author,
-                site = uiState.site
+                site = uiState.site,
+                shouldShowForecast = uiState.shouldShowForecast,
+                onForecastClicked = viewModel::onForecastClicked
             )
         }
     }
@@ -67,7 +70,9 @@ fun DashboardScreen(
     tempHigh: String,
     temp: String,
     author: String,
-    site: String
+    site: String,
+    shouldShowForecast: Boolean,
+    onForecastClicked: () -> Unit = {}
 ) {
     ConstraintLayout(
         modifier = modifier
@@ -84,7 +89,8 @@ fun DashboardScreen(
             tempHighRef,
             tempRef,
             authorRef,
-            siteRef
+            siteRef,
+            forecastRef
         ) = createRefs()
 
         heroImage?.let {
@@ -185,7 +191,8 @@ fun DashboardScreen(
                 .constrainAs(tempRef) {
                     bottom.linkTo(parent.bottom, margin = 12.dp)
                     start.linkTo(parent.start, margin = 12.dp)
-                },
+                }
+                .clickable(enabled = true, onClick = onForecastClicked),
             text = temp,
             fontSize = 96.sp,
             fontFamily = Fonts.ubuntu,
@@ -221,6 +228,20 @@ fun DashboardScreen(
             color = MaterialTheme.colorScheme.header,
             colorOutline = MaterialTheme.colorScheme.headerOutline
         )
+
+        AnimatedSlideOut(
+            modifier = Modifier
+                .constrainAs(forecastRef) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    end.linkTo(parent.end)
+                }
+                .width(200.dp),
+            visible = shouldShowForecast,
+            onDismissRequest = onForecastClicked
+        ) {
+            ForecastScreenRoute()
+        }
     }
 }
 
@@ -240,6 +261,7 @@ private fun DashboardScreenPreview() {
             temp = "61",
             author = "Michelle Mcewen",
             site = "unsplash",
+            shouldShowForecast = false
         )
     }
 }

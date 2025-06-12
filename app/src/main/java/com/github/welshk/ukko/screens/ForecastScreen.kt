@@ -1,5 +1,7 @@
 package com.github.welshk.ukko.screens
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -51,7 +53,8 @@ fun ForecastScreen(
 
     ConstraintLayout(
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxHeight()
+            .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
         val (
             cityRef,
