@@ -43,12 +43,15 @@ android {
         val USE_MOCK_DATA = "USE_MOCK_DATA"
         val MOCK_CURRENT_WEATHER = "MOCK_CURRENT_WEATHER"
         val MOCK_CURRENT_WEATHER_FILE = "\"tampa_thunderstorm.json\""
+        val MOCK_CURRENT_FORECAST = "MOCK_CURRENT_FORECAST"
+        val MOCK_CURRENT_FORECAST_FILE = "\"forecast.json\""
 
         getByName("release") {
             buildConfigField(STRING, API_KEY, OPENWEEATHERMAP_API_KEY)
             buildConfigField(STRING, BASE_URL, BASE_URL_OPENWEATHERMAP_API)
             buildConfigField(BOOLEAN, USE_MOCK_DATA, FALSE)
             buildConfigField(STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE)
+            buildConfigField(STRING, MOCK_CURRENT_FORECAST, MOCK_CURRENT_FORECAST_FILE)
             isMinifyEnabled = false
         }
 
@@ -57,6 +60,7 @@ android {
             buildConfigField(STRING, BASE_URL, BASE_URL_OPENWEATHERMAP_API)
             buildConfigField(BOOLEAN, USE_MOCK_DATA, FALSE)
             buildConfigField(STRING, MOCK_CURRENT_WEATHER, MOCK_CURRENT_WEATHER_FILE)
+            buildConfigField(STRING, MOCK_CURRENT_FORECAST, MOCK_CURRENT_FORECAST_FILE)
             isMinifyEnabled = false
         }
     }

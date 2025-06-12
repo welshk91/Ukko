@@ -41,7 +41,7 @@ class WeatherRepository {
         units: String = Constants.UNITS_IMPERIAL
     ): HttpResponse {
         if (BuildConfig.USE_MOCK_DATA) {
-            val ktorClient = KtorClient.getMockInstance()
+            val ktorClient = KtorClient.getMockInstance(json = BuildConfig.MOCK_CURRENT_WEATHER)
             return ktorClient.get("/data/2.5/weather")
         } else {
             val ktorClient = KtorClient.getInstance()
