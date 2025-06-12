@@ -1,14 +1,22 @@
 package com.github.welshk.ukko.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.welshk.ukko.app.UkkoTheme
 import com.github.welshk.ukko.data.models.openweathermap.forecast.City
@@ -55,9 +63,12 @@ fun ForecastScreen(
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
 
-        LazyColumn {
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
             items(daysForecast.list.size) { index ->
                 ForecastItem(forecast = daysForecast.list[index])
+
             }
         }
     }
@@ -68,7 +79,18 @@ fun ForecastItem(
     modifier: Modifier = Modifier,
     forecast: List
 ) {
-    Column {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(2.dp)
+            .border(
+                1.dp,
+                SolidColor(MaterialTheme.colorScheme.onSecondaryContainer),
+                shape = RoundedCornerShape(15.dp)
+            )
+            .padding(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         forecast.dtTxt?.let {
             OutlineText(text = it)
         }
