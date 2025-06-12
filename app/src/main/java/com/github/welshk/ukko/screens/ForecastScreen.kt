@@ -1,25 +1,23 @@
 package com.github.welshk.ukko.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.github.welshk.ukko.app.Fonts
 import com.github.welshk.ukko.app.UkkoTheme
-import com.github.welshk.ukko.app.header
-import com.github.welshk.ukko.app.headerOutline
 import com.github.welshk.ukko.data.models.openweathermap.forecast.City
 import com.github.welshk.ukko.data.models.openweathermap.forecast.Coord
 import com.github.welshk.ukko.data.models.openweathermap.forecast.Forecast
 import com.github.welshk.ukko.data.models.openweathermap.forecast.List
+import com.github.welshk.ukko.data.models.openweathermap.forecast.Main
+import com.github.welshk.ukko.data.models.openweathermap.forecast.Sys
+import com.github.welshk.ukko.data.models.openweathermap.forecast.Weather
 import com.github.welshk.ukko.ui.HideSystemBars
 import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.viewmodels.SlideoutViewModel
@@ -51,30 +49,77 @@ fun ForecastScreen(
     daysForecast: Forecast
 ) {
 
-    ConstraintLayout(
+    Column(
         modifier = modifier
             .fillMaxHeight()
             .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
-        val (
-            cityRef,
-        ) = createRefs()
-        
-        OutlineText(
-            modifier = Modifier
-                .constrainAs(cityRef) {
-                    top.linkTo(parent.top, margin = 12.dp)
-                    start.linkTo(parent.start, margin = 12.dp)
-                },
-            text = "Testing forecast view",
-            fontSize = 42.sp,
-            fontFamily = Fonts.ubuntu,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.header,
-            colorOutline = MaterialTheme.colorScheme.headerOutline
+
+        LazyColumn {
+            items(daysForecast.list.size) { index ->
+                ForecastItem(forecast = daysForecast.list[index])
+            }
+        }
+    }
+}
+
+@Composable
+fun ForecastItem(
+    modifier: Modifier = Modifier,
+    forecast: List
+) {
+    Column {
+        forecast.dtTxt?.let {
+            OutlineText(text = it)
+        }
+
+        Row {
+            OutlineText(
+                text = forecast.main.temp.toString()
+            )
+        }
+
+        OutlineText(text = forecast.weather[0].description)
+    }
+}
+
+@Composable
+@PreviewLightDark
+fun ForecastItemPreview() {
+    UkkoTheme {
+        ForecastItem(
+            forecast = List(
+                dt = null,
+                main = Main(
+                    temp = 296.76,
+                    feelsLike = 296.98,
+                    tempMin = 296.76,
+                    tempMax = 297.87,
+                    pressure = 1015,
+                    humidity = 69
+                ),
+                weather = arrayListOf(
+                    Weather(
+                        id = 1,
+                        main = "Rain",
+                        description = "light rain",
+                        icon = "10d"
+                    )
+                ),
+                clouds = null,
+                wind = null,
+                visibility = null,
+                pop = null,
+                rain = null,
+                sys = Sys(
+                    pod = "pod"
+                ),
+                dtTxt = "2022-08-30 15:00:00"
+            )
         )
     }
 }
+
 
 @Composable
 @PreviewLightDark
