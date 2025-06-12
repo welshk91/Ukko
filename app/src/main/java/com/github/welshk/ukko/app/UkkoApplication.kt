@@ -15,6 +15,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.koinConfiguration
 import org.koin.dsl.module
+import com.github.welshk.ukko.utils.FormatUtil
 
 /**
  * Application class.
@@ -23,6 +24,7 @@ import org.koin.dsl.module
 @OptIn(KoinExperimentalAPI::class)
 class UkkoApplication : Application(), KoinStartup {
     override fun onKoinStartup() = koinConfiguration {
+        androidContext(this@UkkoApplication)
         val appModule = module {
             singleOf(::WeatherRepository)
             singleOf(::ForecastRepository)
@@ -31,9 +33,12 @@ class UkkoApplication : Application(), KoinStartup {
             viewModelOf(::TestViewModel)
             viewModelOf(::DashboardViewModel)
             viewModelOf(::SlideoutViewModel)
+
+            factory {
+                FormatUtil(androidContext().resources)
+            }
         }
 
-        androidContext(this@UkkoApplication)
         modules(appModule)
     }
 }

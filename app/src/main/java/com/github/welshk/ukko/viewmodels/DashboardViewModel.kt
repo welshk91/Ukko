@@ -1,6 +1,5 @@
 package com.github.welshk.ukko.viewmodels
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.welshk.ukko.data.LocationRepository
@@ -16,15 +15,14 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-
 /**
  * ViewModel for Dashboard screen
  * Fetch weather data on initialization and post successful responses
  */
 class DashboardViewModel(
-    private val context: Context,
     private val weatherRepo: WeatherRepository,
-    private val locationRepo: LocationRepository
+    private val locationRepo: LocationRepository,
+    private val formatUtil: FormatUtil
 ) : ViewModel() {
     private val weatherFlow = weatherRepo.weather
     private val locationFlow = locationRepo.userLocation
@@ -49,14 +47,14 @@ class DashboardViewModel(
     ) { weather, location, shouldShowForecast ->
         UiState.Success(
             heroImage = HeroImageUtil.getHeroImage(weather),
-            city = FormatUtil.formatCity(weather),
-            country = FormatUtil.formatCountry(weather),
-            time = FormatUtil.formatTime(weather),
-            description = FormatUtil.formatDescription(weather),
+            city = formatUtil.formatCity(weather),
+            country = formatUtil.formatCountry(weather),
+            time = formatUtil.formatTime(weather),
+            description = formatUtil.formatDescription(weather),
             icon = "",
-            tempLow = FormatUtil.formatTempLow(context, weather),
-            tempHigh = FormatUtil.formatTempHigh(context, weather),
-            temp = FormatUtil.formatTemp(context, weather),
+            tempLow = formatUtil.formatTempLow(weather),
+            tempHigh = formatUtil.formatTempHigh(weather),
+            temp = formatUtil.formatTemp(weather),
             author = HeroImageUtil.getHeroImage(weather)?.author.toString(),
             site = HeroImageUtil.getHeroImage(weather)?.site.toString(),
             shouldShowForecast = shouldShowForecast

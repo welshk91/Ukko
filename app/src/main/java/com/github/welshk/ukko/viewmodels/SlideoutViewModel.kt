@@ -1,6 +1,5 @@
 package com.github.welshk.ukko.viewmodels
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.welshk.ukko.data.ForecastRepository
@@ -17,7 +16,6 @@ import kotlinx.coroutines.launch
  * Fetch forecast data on initialization and post successful responses
  */
 class SlideoutViewModel(
-    private val context: Context,
     private val forecastRepo: ForecastRepository,
     private val locationRepo: LocationRepository
 ) : ViewModel() {
