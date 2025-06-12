@@ -1,12 +1,13 @@
 package com.github.welshk.ukko.app
 
 import android.app.Application
-import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.ForecastRepository
 import com.github.welshk.ukko.data.LocationRepository
-import com.github.welshk.ukko.viewmodels.TestViewModel
+import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.viewmodels.DashboardViewModel
 import com.github.welshk.ukko.viewmodels.MainViewModel
+import com.github.welshk.ukko.viewmodels.SlideoutViewModel
+import com.github.welshk.ukko.viewmodels.TestViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androix.startup.KoinStartup
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -29,6 +30,7 @@ class UkkoApplication : Application(), KoinStartup {
             viewModelOf(::MainViewModel)
             viewModelOf(::TestViewModel)
             viewModelOf(::DashboardViewModel)
+            viewModelOf(::SlideoutViewModel)
         }
 
         androidContext(this@UkkoApplication)

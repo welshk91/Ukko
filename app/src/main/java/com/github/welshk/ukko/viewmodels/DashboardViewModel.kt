@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.LocationRepository
+import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.models.HeroImage
 import com.github.welshk.ukko.utils.FormatUtil
 import com.github.welshk.ukko.utils.HeroImageUtil
@@ -26,14 +26,14 @@ class DashboardViewModel(
     private val locationRepo: LocationRepository
 ) : ViewModel() {
     private val hasPermissionFlow = locationRepo.permissionStatus
-    private val weatherFlow = weatherRepo.weatherDetails
+    private val weatherFlow = weatherRepo.weather
     private val locationFlow = locationRepo.userLocation
 
     init {
         viewModelScope.launch {
             locationRepo.userLocation.collect { location ->
                 location?.let {
-                    weatherRepo.fetchWeatherDetails(location)
+                    weatherRepo.fetchWeather(location)
                 }
             }
         }
