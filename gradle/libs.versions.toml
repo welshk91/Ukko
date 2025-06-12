@@ -46,6 +46,8 @@ koin-android-compose = { module = "io.insert-koin:koin-androidx-compose", versio
 koin-android-compat = { module = "io.insert-koin:koin-android-compat", version.ref = "koin" }
 koin-android-startup = { module = "io.insert-koin:koin-androidx-startup", version.ref = "koin" }
 koin-android-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-test-junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
 
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "play-location" }
 
