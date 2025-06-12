@@ -2,6 +2,7 @@ package com.github.welshk.ukko.app
 
 import android.app.Application
 import com.github.welshk.ukko.data.WeatherRepository
+import com.github.welshk.ukko.data.ForecastRepository
 import com.github.welshk.ukko.data.LocationRepository
 import com.github.welshk.ukko.viewmodels.TestViewModel
 import com.github.welshk.ukko.viewmodels.DashboardViewModel
@@ -23,6 +24,7 @@ class UkkoApplication : Application(), KoinStartup {
     override fun onKoinStartup() = koinConfiguration {
         val appModule = module {
             singleOf(::WeatherRepository)
+            singleOf(::ForecastRepository)
             singleOf(::LocationRepository)
             viewModelOf(::MainViewModel)
             viewModelOf(::TestViewModel)

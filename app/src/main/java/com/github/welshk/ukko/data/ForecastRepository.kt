@@ -2,7 +2,7 @@ package com.github.welshk.ukko.data
 
 import android.location.Location
 import com.github.welshk.ukko.BuildConfig
-import com.github.welshk.ukko.data.models.openweathermap.details.WeatherDetails
+import com.github.welshk.ukko.data.models.openweathermap.forecast.Forecast
 import com.github.welshk.ukko.networking.Constants
 import com.github.welshk.ukko.networking.KtorClient
 import io.ktor.client.call.body
@@ -17,35 +17,34 @@ import kotlinx.coroutines.flow.asStateFlow
  * In more advanced apps, this class would be responsible for getting data from a cache/database or
  * fetching data if not found. Currently we just always fetch data from the internet
  */
-class WeatherRepository {
-    val _weatherDetails = MutableStateFlow<WeatherDetails?>(null)
-    val weatherDetails = _weatherDetails.asStateFlow()
+class ForecastRepository {
+    val _forecast = MutableStateFlow<Forecast?>(null)
+    val forecast = _forecast.asStateFlow()
 
-    val _httpCodeDetails = MutableStateFlow<HttpStatusCode?>(null)
-    val httpCodeDetails = _httpCodeDetails.asStateFlow()
+    val _httpCodeForecast = MutableStateFlow<HttpStatusCode?>(null)
+    val httpCodeForecast = _httpCodeForecast.asStateFlow()
 
-    //Get the days data in detail
-    suspend fun fetchWeatherDetails(location: Location) {
-        val response = getWeatherDetails(location)
-        _httpCodeDetails.value = response.status
+    suspend fun fetchForecast(location: Location) {
+        val response = getForecast(location)
+        _httpCodeForecast.value = response.status
         if (response.status == HttpStatusCode.OK) {
-            val details = response.body<WeatherDetails>()
-            details.let {
-                _weatherDetails.value = it
+            val forecast = response.body<Forecast>()
+            forecast.let {
+                _forecast.value = it
             }
         }
     }
 
-    private suspend fun getWeatherDetails(
+    private suspend fun getForecast(
         location: Location,
         units: String = Constants.UNITS_IMPERIAL
     ): HttpResponse {
         if (BuildConfig.USE_MOCK_DATA) {
             val ktorClient = KtorClient.getMockInstance()
-            return ktorClient.get("/data/2.5/weather")
+            return ktorClient.get("/data/2.5/forecast")
         } else {
             val ktorClient = KtorClient.getInstance()
-            return ktorClient.get("/data/2.5/weather") {
+            return ktorClient.get("/data/2.5/forecast") {
                 url {
                     parameters.append(Constants.APP_ID, BuildConfig.API_KEY)
                     parameters.append(Constants.LATITUDE, location.latitude.toString())
@@ -55,8 +54,5 @@ class WeatherRepository {
             }
         }
     }
-}
 
-fun HttpStatusCode.showWarning(): Boolean {
-    return this.value !in 200..210
 }

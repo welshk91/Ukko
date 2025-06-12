@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class WeatherForecast(
+data class Forecast(
     @SerialName("cod")
     var cod: String? = null,
     @SerialName("message")
