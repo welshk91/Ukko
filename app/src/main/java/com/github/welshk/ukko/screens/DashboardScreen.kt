@@ -109,7 +109,7 @@ fun DashboardScreen(
         OutlineText(
             modifier = Modifier
                 .constrainAs(cityRef) {
-                    top.linkTo(parent.top, margin = 12.dp)
+                    top.linkTo(parent.top, margin = 42.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 },
             text = city,
@@ -189,7 +189,7 @@ fun DashboardScreen(
         OutlineText(
             modifier = Modifier
                 .constrainAs(tempRef) {
-                    bottom.linkTo(parent.bottom, margin = 12.dp)
+                    bottom.linkTo(parent.bottom, margin = 56.dp)
                     start.linkTo(parent.start, margin = 12.dp)
                 }
                 .clickable(enabled = true, onClick = onForecastClicked),
@@ -218,7 +218,7 @@ fun DashboardScreen(
         OutlineText(
             modifier = Modifier
                 .constrainAs(siteRef) {
-                    bottom.linkTo(parent.bottom, margin = 12.dp)
+                    bottom.linkTo(parent.bottom, margin = 56.dp)
                     end.linkTo(parent.end, margin = 12.dp)
                 },
             text = site,
