@@ -18,25 +18,25 @@ import kotlinx.coroutines.flow.asStateFlow
  * fetching data if not found. Currently we just always fetch data from the internet
  */
 class WeatherRepository {
-    val _weatherDetails = MutableStateFlow<WeatherDetails?>(null)
-    val weatherDetails = _weatherDetails.asStateFlow()
+    val _weather = MutableStateFlow<WeatherDetails?>(null)
+    val weather = _weather.asStateFlow()
 
-    val _httpCodeDetails = MutableStateFlow<HttpStatusCode?>(null)
-    val httpCodeDetails = _httpCodeDetails.asStateFlow()
+    val _httpCodeWeather = MutableStateFlow<HttpStatusCode?>(null)
+    val httpCodeWeather = _httpCodeWeather.asStateFlow()
 
     //Get the days data in detail
-    suspend fun fetchWeatherDetails(location: Location) {
-        val response = getWeatherDetails(location)
-        _httpCodeDetails.value = response.status
+    suspend fun fetchWeather(location: Location) {
+        val response = getWeather(location)
+        _httpCodeWeather.value = response.status
         if (response.status == HttpStatusCode.OK) {
-            val details = response.body<WeatherDetails>()
-            details.let {
-                _weatherDetails.value = it
+            val weather = response.body<WeatherDetails>()
+            weather.let {
+                _weather.value = it
             }
         }
     }
 
-    private suspend fun getWeatherDetails(
+    private suspend fun getWeather(
         location: Location,
         units: String = Constants.UNITS_IMPERIAL
     ): HttpResponse {
