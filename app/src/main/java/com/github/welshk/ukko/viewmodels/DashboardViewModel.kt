@@ -1,10 +1,8 @@
 package com.github.welshk.ukko.viewmodels
 
 import android.content.Context
-import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.welshk.ukko.data.LocationPermission
 import com.github.welshk.ukko.data.LocationRepository
 import com.github.welshk.ukko.data.WeatherRepository
 import com.github.welshk.ukko.data.models.HeroImage
@@ -25,7 +23,6 @@ class DashboardViewModel(
     private val weatherRepo: WeatherRepository,
     private val locationRepo: LocationRepository
 ) : ViewModel() {
-    private val hasPermissionFlow = locationRepo.permissionStatus
     private val weatherFlow = weatherRepo.weather
     private val locationFlow = locationRepo.userLocation
 
@@ -40,12 +37,10 @@ class DashboardViewModel(
     }
 
     val uiState = combine(
-        hasPermissionFlow,
         weatherFlow,
         locationFlow
-    ) { hasPermission, weather, location ->
+    ) { weather, location ->
         UiState.Success(
-            permissionStatus = hasPermission,
             heroImage = HeroImageUtil.getHeroImage(weather),
             city = FormatUtil.formatCity(weather),
             country = FormatUtil.formatCountry(weather),
@@ -64,20 +59,10 @@ class DashboardViewModel(
         UiState.Loading
     )
 
-    @Composable
-    fun setPermissionRequest() {
-        locationRepo.setPermissionRequest(context)
-    }
-
-    fun launchRequest() {
-        locationRepo.launchPermissionRequest()
-    }
-
     sealed interface UiState {
         data object Loading : UiState
         data object Error : UiState
         data class Success(
-            val permissionStatus: LocationPermission,
             val heroImage: HeroImage?,
             val city: String,
             val country: String,

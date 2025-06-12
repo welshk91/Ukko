@@ -38,9 +38,6 @@ fun DashboardScreenRoute(
             HideSystemBars()
             DashboardScreen(
                 modifier = modifier,
-                onSetPermissionRequest = { viewModel.setPermissionRequest() },
-                onLaunchPermissionRequest = viewModel::launchRequest,
-                permissionStatus = uiState.permissionStatus,
                 heroImage = uiState.heroImage,
                 city = uiState.city,
                 country = uiState.country,
@@ -60,9 +57,6 @@ fun DashboardScreenRoute(
 @Composable
 fun DashboardScreen(
     modifier: Modifier = Modifier,
-    onSetPermissionRequest: @Composable () -> Unit = {},
-    onLaunchPermissionRequest: () -> Unit = {},
-    permissionStatus: LocationPermission,
     heroImage: HeroImage?,
     city: String,
     country: String,
@@ -75,15 +69,6 @@ fun DashboardScreen(
     author: String,
     site: String
 ) {
-    onSetPermissionRequest()
-
-    LifecycleStartEffect(key1 = permissionStatus) {
-        if (permissionStatus == LocationPermission.NONE) {
-            onLaunchPermissionRequest()
-        }
-        onStopOrDispose { }
-    }
-
     ConstraintLayout(
         modifier = modifier
             .fillMaxSize()
@@ -244,7 +229,6 @@ fun DashboardScreen(
 private fun DashboardScreenPreview() {
     UkkoTheme {
         DashboardScreen(
-            permissionStatus = LocationPermission.NONE,
             heroImage = HeroImageUtil.getPreviewLightWeather(),
             city = "Tampa,",
             country = "USA",
