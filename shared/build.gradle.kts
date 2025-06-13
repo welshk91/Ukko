@@ -34,7 +34,7 @@ kotlin {
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
 
-/** Add back these platforms when ready to work on iOS **/
+    /** Add back these platforms when ready to work on iOS **/
 //    val xcfName = "sharedKit"
 //
 //    iosX64 {
@@ -64,7 +64,12 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-                // Add KMP dependencies here
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.cio)
+                implementation(libs.ktor.client.auth)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.contentNegotiation)
             }
         }
 
@@ -79,6 +84,7 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
+                implementation(libs.ktor.client.android)
             }
         }
 
@@ -90,6 +96,8 @@ kotlin {
 //                // part of KMP’s default source set hierarchy. Note that this source set depends
 //                // on common by default and will correctly pull the iOS artifacts of any
 //                // KMP dependencies declared in commonMain.
+//
+//                implementation(libs.ktor.client.darwin)
 //            }
 //        }
     }
