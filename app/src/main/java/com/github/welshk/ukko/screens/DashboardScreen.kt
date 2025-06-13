@@ -1,6 +1,5 @@
 package com.github.welshk.ukko.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +18,7 @@ import com.github.welshk.ukko.app.headerOutline
 import com.github.welshk.ukko.data.models.HeroImage
 import com.github.welshk.ukko.ui.AnimatedSlideOut
 import com.github.welshk.ukko.ui.HeroImage
+import com.github.welshk.ukko.ui.InfoButton
 import com.github.welshk.ukko.ui.OutlineText
 import com.github.welshk.ukko.utils.HeroImageUtil
 import com.github.welshk.ukko.viewmodels.DashboardViewModel
@@ -88,7 +88,8 @@ fun DashboardScreen(
             tempRef,
             authorRef,
             siteRef,
-            forecastRef
+            forecastRef,
+            infoRef
         ) = createRefs()
 
         heroImage?.let {
@@ -189,14 +190,23 @@ fun DashboardScreen(
                 .constrainAs(tempRef) {
                     bottom.linkTo(parent.bottom, margin = 56.dp)
                     start.linkTo(parent.start, margin = 12.dp)
-                }
-                .clickable(enabled = true, onClick = onForecastClicked),
+                },
             text = temp,
             fontSize = 96.sp,
             fontFamily = Fonts.ubuntu,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.header,
             colorOutline = MaterialTheme.colorScheme.headerOutline
+        )
+
+        InfoButton(
+            modifier = Modifier
+                .constrainAs(infoRef) {
+                    bottom.linkTo(tempRef.bottom)
+                    start.linkTo(tempRef.end, margin = 8.dp)
+                },
+            color = MaterialTheme.colorScheme.header,
+            onClick = onForecastClicked
         )
 
         OutlineText(
