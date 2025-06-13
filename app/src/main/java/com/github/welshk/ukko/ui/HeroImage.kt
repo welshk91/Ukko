@@ -61,7 +61,7 @@ fun HeroImage(
 fun HeroImage(
     modifier: Modifier = Modifier,
     heroImage: HeroImage,
-    contentScale: ContentScale = ContentScale.FillBounds,
+    contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
     bottomGradientColors: List<Color>? = MaterialTheme.colorScheme.gradient,
     topGradientColors: List<Color>? = MaterialTheme.colorScheme.radialGradient
