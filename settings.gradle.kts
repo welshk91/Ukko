@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Ukko"
-include(":app")
+include(":androidApp")
 include(":shared")
