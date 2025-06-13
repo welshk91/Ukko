@@ -19,8 +19,11 @@ An older version, found [here](https://github.com/welshk91/Ukko/tree/746cf840c5c
 
 
 ## Improvements
-* Add a [side sheet](https://m2.material.io/components/sheets-side) with more details and five day [forecast](https://openweathermap.org/forecast5)
-* Add alternative Weather APIs
+* Move project over to [Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/)
+* Clean up the [side sheet](https://m2.material.io/components/sheets-side) that contains the five day [forecast](https://openweathermap.org/forecast5)
+* Add Loading and Error screens
+* Add alternative Weather APIs such as [Open-Meteo](https://open-meteo.com/) and [Weather.gov](https://www.weather.gov/documentation/services-web-api)
+* Weather [live notification](https://developer.android.com/about/versions/16/features/progress-centric-notifications) 
 * Add more background images depicting the weather status
 * Add more Unit Testing
 
